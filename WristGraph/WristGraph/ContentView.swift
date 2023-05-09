@@ -14,6 +14,22 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
+            Button {
+                Task {
+                    do {
+                        let weeks = try await Request.shared.getGraph(userName: "hikaruaohara")
+                        for week in weeks {
+                            for day in week.contributionDays {
+                                print(day.contributionLevel)
+                            }
+                        }
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+            } label: {
+                Text("Call API")
+            }
         }
         .padding()
     }

@@ -16,13 +16,14 @@
 		1738573D2A0A98E100DA7204 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738573C2A0A98E100DA7204 /* ContentView.swift */; };
 		1738573F2A0A98E100DA7204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1738573E2A0A98E100DA7204 /* Assets.xcassets */; };
 		173857422A0A98E100DA7204 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 173857412A0A98E100DA7204 /* Preview Assets.xcassets */; };
-		173857552A0AB60D00DA7204 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 173857542A0AB60D00DA7204 /* Moya */; };
 		173857572A0AB70800DA7204 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173857562A0AB70800DA7204 /* Target.swift */; };
 		173857582A0AB70800DA7204 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173857562A0AB70800DA7204 /* Target.swift */; };
 		1738575B2A0ABEAD00DA7204 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173857512A0AB35500DA7204 /* AccessToken.swift */; };
 		1738575E2A0ABF7F00DA7204 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738575D2A0ABF7F00DA7204 /* APIClient.swift */; };
 		1738575F2A0ABF7F00DA7204 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738575D2A0ABF7F00DA7204 /* APIClient.swift */; };
 		173857612A0AC00300DA7204 /* ParseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173857602A0AC00300DA7204 /* ParseModel.swift */; };
+		179A7FA52A0ACBF2000276A2 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 179A7FA42A0ACBF2000276A2 /* Moya */; };
+		17FBBAFD2A0ACD8500B0C177 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 17FBBAFC2A0ACD8500B0C177 /* Moya */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				173857552A0AB60D00DA7204 /* Moya in Frameworks */,
+				179A7FA52A0ACBF2000276A2 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17FBBAFD2A0ACD8500B0C177 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +93,7 @@
 				173857272A0A98DF00DA7204 /* WristGraph */,
 				173857392A0A98E100DA7204 /* WristGraph Watch App */,
 				173857262A0A98DF00DA7204 /* Products */,
+				179A7F9D2A0AC833000276A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +156,13 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		179A7F9D2A0AC833000276A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -172,7 +182,7 @@
 			);
 			name = WristGraph;
 			packageProductDependencies = (
-				173857542A0AB60D00DA7204 /* Moya */,
+				179A7FA42A0ACBF2000276A2 /* Moya */,
 			);
 			productName = WristGraph;
 			productReference = 173857252A0A98DF00DA7204 /* WristGraph.app */;
@@ -191,6 +201,9 @@
 			dependencies = (
 			);
 			name = "WristGraph Watch App";
+			packageProductDependencies = (
+				17FBBAFC2A0ACD8500B0C177 /* Moya */,
+			);
 			productName = "WristGraph Watch App";
 			productReference = 173857352A0A98E100DA7204 /* WristGraph Watch App.app */;
 			productType = "com.apple.product-type.application";
@@ -223,7 +236,7 @@
 			);
 			mainGroup = 1738571C2A0A98DF00DA7204;
 			packageReferences = (
-				173857532A0AB60D00DA7204 /* XCRemoteSwiftPackageReference "Moya" */,
+				179A7FA32A0ACBF2000276A2 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 173857262A0A98DF00DA7204 /* Products */;
 			projectDirPath = "";
@@ -562,20 +575,25 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		173857532A0AB60D00DA7204 /* XCRemoteSwiftPackageReference "Moya" */ = {
+		179A7FA32A0ACBF2000276A2 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		173857542A0AB60D00DA7204 /* Moya */ = {
+		179A7FA42A0ACBF2000276A2 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 173857532A0AB60D00DA7204 /* XCRemoteSwiftPackageReference "Moya" */;
+			package = 179A7FA32A0ACBF2000276A2 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		17FBBAFC2A0ACD8500B0C177 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 179A7FA32A0ACBF2000276A2 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
 		};
 /* End XCSwiftPackageProductDependency section */
