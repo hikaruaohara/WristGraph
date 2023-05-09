@@ -1,0 +1,529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		173857292A0A98DF00DA7204 /* WristGraphApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173857282A0A98DF00DA7204 /* WristGraphApp.swift */; };
+		1738572B2A0A98DF00DA7204 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738572A2A0A98DF00DA7204 /* ContentView.swift */; };
+		1738572D2A0A98E100DA7204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1738572C2A0A98E100DA7204 /* Assets.xcassets */; };
+		173857302A0A98E100DA7204 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1738572F2A0A98E100DA7204 /* Preview Assets.xcassets */; };
+		173857362A0A98E100DA7204 /* WristGraph Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 173857352A0A98E100DA7204 /* WristGraph Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1738573B2A0A98E100DA7204 /* WristGraphApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738573A2A0A98E100DA7204 /* WristGraphApp.swift */; };
+		1738573D2A0A98E100DA7204 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738573C2A0A98E100DA7204 /* ContentView.swift */; };
+		1738573F2A0A98E100DA7204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1738573E2A0A98E100DA7204 /* Assets.xcassets */; };
+		173857422A0A98E100DA7204 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 173857412A0A98E100DA7204 /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		173857372A0A98E100DA7204 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1738571D2A0A98DF00DA7204 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 173857342A0A98E100DA7204;
+			remoteInfo = "WristGraph Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		173857482A0A98E100DA7204 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				173857362A0A98E100DA7204 /* WristGraph Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		173857252A0A98DF00DA7204 /* WristGraph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WristGraph.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		173857282A0A98DF00DA7204 /* WristGraphApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WristGraphApp.swift; sourceTree = "<group>"; };
+		1738572A2A0A98DF00DA7204 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1738572C2A0A98E100DA7204 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1738572F2A0A98E100DA7204 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		173857352A0A98E100DA7204 /* WristGraph Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WristGraph Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1738573A2A0A98E100DA7204 /* WristGraphApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WristGraphApp.swift; sourceTree = "<group>"; };
+		1738573C2A0A98E100DA7204 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1738573E2A0A98E100DA7204 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		173857412A0A98E100DA7204 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		173857222A0A98DF00DA7204 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173857322A0A98E100DA7204 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1738571C2A0A98DF00DA7204 = {
+			isa = PBXGroup;
+			children = (
+				173857272A0A98DF00DA7204 /* WristGraph */,
+				173857392A0A98E100DA7204 /* WristGraph Watch App */,
+				173857262A0A98DF00DA7204 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		173857262A0A98DF00DA7204 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				173857252A0A98DF00DA7204 /* WristGraph.app */,
+				173857352A0A98E100DA7204 /* WristGraph Watch App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		173857272A0A98DF00DA7204 /* WristGraph */ = {
+			isa = PBXGroup;
+			children = (
+				173857282A0A98DF00DA7204 /* WristGraphApp.swift */,
+				1738572A2A0A98DF00DA7204 /* ContentView.swift */,
+				1738572C2A0A98E100DA7204 /* Assets.xcassets */,
+				1738572E2A0A98E100DA7204 /* Preview Content */,
+			);
+			path = WristGraph;
+			sourceTree = "<group>";
+		};
+		1738572E2A0A98E100DA7204 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1738572F2A0A98E100DA7204 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		173857392A0A98E100DA7204 /* WristGraph Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				1738573A2A0A98E100DA7204 /* WristGraphApp.swift */,
+				1738573C2A0A98E100DA7204 /* ContentView.swift */,
+				1738573E2A0A98E100DA7204 /* Assets.xcassets */,
+				173857402A0A98E100DA7204 /* Preview Content */,
+			);
+			path = "WristGraph Watch App";
+			sourceTree = "<group>";
+		};
+		173857402A0A98E100DA7204 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				173857412A0A98E100DA7204 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		173857242A0A98DF00DA7204 /* WristGraph */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 173857492A0A98E100DA7204 /* Build configuration list for PBXNativeTarget "WristGraph" */;
+			buildPhases = (
+				173857212A0A98DF00DA7204 /* Sources */,
+				173857222A0A98DF00DA7204 /* Frameworks */,
+				173857232A0A98DF00DA7204 /* Resources */,
+				173857482A0A98E100DA7204 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				173857382A0A98E100DA7204 /* PBXTargetDependency */,
+			);
+			name = WristGraph;
+			productName = WristGraph;
+			productReference = 173857252A0A98DF00DA7204 /* WristGraph.app */;
+			productType = "com.apple.product-type.application";
+		};
+		173857342A0A98E100DA7204 /* WristGraph Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 173857452A0A98E100DA7204 /* Build configuration list for PBXNativeTarget "WristGraph Watch App" */;
+			buildPhases = (
+				173857312A0A98E100DA7204 /* Sources */,
+				173857322A0A98E100DA7204 /* Frameworks */,
+				173857332A0A98E100DA7204 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WristGraph Watch App";
+			productName = "WristGraph Watch App";
+			productReference = 173857352A0A98E100DA7204 /* WristGraph Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1738571D2A0A98DF00DA7204 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					173857242A0A98DF00DA7204 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					173857342A0A98E100DA7204 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+				};
+			};
+			buildConfigurationList = 173857202A0A98DF00DA7204 /* Build configuration list for PBXProject "WristGraph" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1738571C2A0A98DF00DA7204;
+			productRefGroup = 173857262A0A98DF00DA7204 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				173857242A0A98DF00DA7204 /* WristGraph */,
+				173857342A0A98E100DA7204 /* WristGraph Watch App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		173857232A0A98DF00DA7204 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				173857302A0A98E100DA7204 /* Preview Assets.xcassets in Resources */,
+				1738572D2A0A98E100DA7204 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173857332A0A98E100DA7204 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				173857422A0A98E100DA7204 /* Preview Assets.xcassets in Resources */,
+				1738573F2A0A98E100DA7204 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		173857212A0A98DF00DA7204 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1738572B2A0A98DF00DA7204 /* ContentView.swift in Sources */,
+				173857292A0A98DF00DA7204 /* WristGraphApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		173857312A0A98E100DA7204 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1738573D2A0A98E100DA7204 /* ContentView.swift in Sources */,
+				1738573B2A0A98E100DA7204 /* WristGraphApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		173857382A0A98E100DA7204 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 173857342A0A98E100DA7204 /* WristGraph Watch App */;
+			targetProxy = 173857372A0A98E100DA7204 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		173857432A0A98E100DA7204 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		173857442A0A98E100DA7204 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		173857462A0A98E100DA7204 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WristGraph Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = N38H3ZBTB2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WristGraph;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.icloud.hikaruaohara.WristGraph;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.icloud.hikaruaohara.WristGraph.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		173857472A0A98E100DA7204 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WristGraph Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = N38H3ZBTB2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WristGraph;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.icloud.hikaruaohara.WristGraph;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.icloud.hikaruaohara.WristGraph.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
+		1738574A2A0A98E100DA7204 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WristGraph/Preview Content\"";
+				DEVELOPMENT_TEAM = N38H3ZBTB2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WristGraph;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.icloud.hikaruaohara.WristGraph;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1738574B2A0A98E100DA7204 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WristGraph/Preview Content\"";
+				DEVELOPMENT_TEAM = N38H3ZBTB2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = WristGraph;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.icloud.hikaruaohara.WristGraph;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		173857202A0A98DF00DA7204 /* Build configuration list for PBXProject "WristGraph" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				173857432A0A98E100DA7204 /* Debug */,
+				173857442A0A98E100DA7204 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		173857452A0A98E100DA7204 /* Build configuration list for PBXNativeTarget "WristGraph Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				173857462A0A98E100DA7204 /* Debug */,
+				173857472A0A98E100DA7204 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		173857492A0A98E100DA7204 /* Build configuration list for PBXNativeTarget "WristGraph" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1738574A2A0A98E100DA7204 /* Debug */,
+				1738574B2A0A98E100DA7204 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1738571D2A0A98DF00DA7204 /* Project object */;
+}
