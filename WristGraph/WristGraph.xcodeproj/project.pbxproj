@@ -16,8 +16,8 @@
 		1738573D2A0A98E100DA7204 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738573C2A0A98E100DA7204 /* ContentView.swift */; };
 		1738573F2A0A98E100DA7204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1738573E2A0A98E100DA7204 /* Assets.xcassets */; };
 		173857422A0A98E100DA7204 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 173857412A0A98E100DA7204 /* Preview Assets.xcassets */; };
-		1738574E2A0AA9D400DA7204 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738574D2A0AA9D400DA7204 /* Request.swift */; };
-		1738574F2A0AA9D400DA7204 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738574D2A0AA9D400DA7204 /* Request.swift */; };
+		1738574E2A0AA9D400DA7204 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738574D2A0AA9D400DA7204 /* APIClient.swift */; };
+		1738574F2A0AA9D400DA7204 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738574D2A0AA9D400DA7204 /* APIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +55,7 @@
 		1738573C2A0A98E100DA7204 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1738573E2A0A98E100DA7204 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		173857412A0A98E100DA7204 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		1738574D2A0AA9D400DA7204 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		1738574D2A0AA9D400DA7204 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +136,7 @@
 		1738574C2A0AA99800DA7204 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				1738574D2A0AA9D400DA7204 /* Request.swift */,
+				1738574D2A0AA9D400DA7204 /* APIClient.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -244,7 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1738572B2A0A98DF00DA7204 /* ContentView.swift in Sources */,
-				1738574E2A0AA9D400DA7204 /* Request.swift in Sources */,
+				1738574E2A0AA9D400DA7204 /* APIClient.swift in Sources */,
 				173857292A0A98DF00DA7204 /* WristGraphApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,7 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1738573D2A0A98E100DA7204 /* ContentView.swift in Sources */,
-				1738574F2A0AA9D400DA7204 /* Request.swift in Sources */,
+				1738574F2A0AA9D400DA7204 /* APIClient.swift in Sources */,
 				1738573B2A0A98E100DA7204 /* WristGraphApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
