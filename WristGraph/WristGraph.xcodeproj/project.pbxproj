@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		171536622A0BE00900CE23B5 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171536612A0BE00900CE23B5 /* ListItem.swift */; };
+		171536632A0BE00900CE23B5 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171536612A0BE00900CE23B5 /* ListItem.swift */; };
 		173857292A0A98DF00DA7204 /* WristGraphApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173857282A0A98DF00DA7204 /* WristGraphApp.swift */; };
 		1738572B2A0A98DF00DA7204 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738572A2A0A98DF00DA7204 /* ContentView.swift */; };
 		1738572D2A0A98E100DA7204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1738572C2A0A98E100DA7204 /* Assets.xcassets */; };
@@ -57,6 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		171536612A0BE00900CE23B5 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		173857252A0A98DF00DA7204 /* WristGraph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WristGraph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		173857282A0A98DF00DA7204 /* WristGraphApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WristGraphApp.swift; sourceTree = "<group>"; };
 		1738572A2A0A98DF00DA7204 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -119,6 +122,7 @@
 			children = (
 				173857282A0A98DF00DA7204 /* WristGraphApp.swift */,
 				1738572A2A0A98DF00DA7204 /* ContentView.swift */,
+				171536612A0BE00900CE23B5 /* ListItem.swift */,
 				1738572C2A0A98E100DA7204 /* Assets.xcassets */,
 				17F710FF2A0B5C420042D8F2 /* Graph */,
 				1738574C2A0AA99800DA7204 /* API */,
@@ -295,6 +299,7 @@
 				1738572B2A0A98DF00DA7204 /* ContentView.swift in Sources */,
 				17F711012A0B5C990042D8F2 /* GraphElement.swift in Sources */,
 				173857612A0AC00300DA7204 /* ParseModel.swift in Sources */,
+				171536622A0BE00900CE23B5 /* ListItem.swift in Sources */,
 				17F710FD2A0B5B2F0042D8F2 /* GraphView.swift in Sources */,
 				173857292A0A98DF00DA7204 /* WristGraphApp.swift in Sources */,
 				173857572A0AB70800DA7204 /* Target.swift in Sources */,
@@ -310,6 +315,7 @@
 				1738573D2A0A98E100DA7204 /* ContentView.swift in Sources */,
 				17F711022A0B5C990042D8F2 /* GraphElement.swift in Sources */,
 				1738573B2A0A98E100DA7204 /* WristGraphApp.swift in Sources */,
+				171536632A0BE00900CE23B5 /* ListItem.swift in Sources */,
 				17F710FE2A0B5B2F0042D8F2 /* GraphView.swift in Sources */,
 				17F710F62A0B57100042D8F2 /* ParseModel.swift in Sources */,
 				173857582A0AB70800DA7204 /* Target.swift in Sources */,

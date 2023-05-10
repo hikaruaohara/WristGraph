@@ -32,7 +32,6 @@ struct GraphView: View {
                         }
                     }
                 }
-                .padding()
             }
         }
         .task {
@@ -55,6 +54,6 @@ struct GraphView: View {
 
 struct GraphView_Previews: PreviewProvider {
     static var previews: some View {
-        GraphView(userName: "dpgaspar")
+        GraphView(userName: "hikaruaohara")
     }
 }
