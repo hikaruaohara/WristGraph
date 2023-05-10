@@ -9,8 +9,11 @@ import SwiftUI
 
 struct GraphElement: View {
     private let color: Color
+    private let size: Double
 
-    init(contributionLevel: String) {
+    init(contributionLevel: String, size: Double) {
+        self.size = size
+
         switch contributionLevel {
         case "FIRST_QUARTILE":
             color = Color.green.opacity(0.25)
@@ -26,14 +29,14 @@ struct GraphElement: View {
     }
 
     var body: some View {
-        RoundedRectangle(cornerRadius: 5)
+        RoundedRectangle(cornerRadius: size / 5)
             .fill(color)
-            .aspectRatio(1, contentMode: .fit)
+            .frame(width: size, height: size)
     }
 }
 
 struct GraphElement_Previews: PreviewProvider {
     static var previews: some View {
-        GraphElement(contributionLevel: "SECOND_QUARTILE")
+        GraphElement(contributionLevel: "SECOND_QUARTILE", size: 10)
     }
 }
