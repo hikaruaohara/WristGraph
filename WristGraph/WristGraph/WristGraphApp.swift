@@ -11,8 +11,7 @@ import SwiftUI
 struct WristGraphApp: App {
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-            GraphView(userName: "hikaruaohara")
+            ContentView()
         }
     }
 }

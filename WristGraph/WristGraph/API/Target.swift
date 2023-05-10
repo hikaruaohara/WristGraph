@@ -42,7 +42,7 @@ extension Target: TargetType {
                     weeks {
                       contributionDays {
                         weekday
-                        color
+                        contributionLevel
                       }
                     }
                   }

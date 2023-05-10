@@ -33,5 +33,5 @@ public struct Week: Decodable {
 
 public struct ContributionDay: Decodable {
     public let weekday: Int
-    public let color: String
+    public let contributionLevel: String
 }

@@ -9,29 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-            Button {
-                Task {
-                    do {
-                        let weeks = try await Request.shared.getGraph(userName: "hikaruaohara")
-                        for week in weeks {
-                            for day in week.contributionDays {
-                                print(day)
-                            }
-                        }
-                    } catch {
-                        print(error.localizedDescription)
-                    }
-                }
-            } label: {
-                Text("Call API")
-            }
-        }
-        .padding()
+        GraphView(userName: "dpgaspar")
     }
 }
 

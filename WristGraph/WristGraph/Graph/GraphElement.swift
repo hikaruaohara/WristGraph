@@ -10,8 +10,19 @@ import SwiftUI
 struct GraphElement: View {
     private let color: Color
 
-    init(color: Color) {
-        self.color = color
+    init(contributionLevel: String) {
+        switch contributionLevel {
+        case "FIRST_QUARTILE":
+            color = Color.green.opacity(0.25)
+        case "SECOND_QUARTILE":
+            color = Color.green.opacity(0.5)
+        case "THIRD_QUARTILE":
+            color = Color.green.opacity(0.75)
+        case "FOURTH_QUARTILE":
+            color = Color.green.opacity(1)
+        default:
+            color = Color.gray.opacity(0.2)
+        }
     }
 
     var body: some View {
@@ -23,6 +34,6 @@ struct GraphElement: View {
 
 struct GraphElement_Previews: PreviewProvider {
     static var previews: some View {
-        GraphElement(color: Color.green)
+        GraphElement(contributionLevel: "SECOND_QUARTILE")
     }
 }
