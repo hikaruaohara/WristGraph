@@ -41,9 +41,8 @@ extension Target: TargetType {
                   contributionCalendar {
                     weeks {
                       contributionDays {
-                        date
+                        weekday
                         color
-                        contributionLevel
                       }
                     }
                   }
