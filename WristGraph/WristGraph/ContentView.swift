@@ -20,7 +20,7 @@ struct ContentView: View {
                         let weeks = try await Request.shared.getGraph(userName: "hikaruaohara")
                         for week in weeks {
                             for day in week.contributionDays {
-                                print(day.weekday)
+                                print(day)
                             }
                         }
                     } catch {

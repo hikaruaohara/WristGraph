@@ -8,13 +8,49 @@
 import SwiftUI
 
 struct GraphView: View {
+    private let userName: String
+    @State private var weeks = Array(repeating: [String](), count: 7)
+
+    init(userName: String) {
+        self.userName = userName
+    }
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+        VStack {
+            if (!weeks[0].isEmpty) {
+                Grid(horizontalSpacing: 2, verticalSpacing: 2) {
+                    ForEach(0..<weeks.count, id: \.self) { i in
+                        GridRow {
+                            ForEach(0..<weeks[i].count, id: \.self) { j in
+                                GraphElement(color: weeks[i][j])
+                                    .frame(width: 18)
+                            }
+                        }
+                    }
+                }
+                .padding()
+            }
+        }
+        .task {
+            do {
+                weeks = Array(repeating: [String](), count: 7)
+                let weeks_ = try await Request.shared.getGraph(userName: userName)
+                let last20Weeks = weeks_[weeks_.count - 20 ..< weeks_.count]
+                for week in last20Weeks {
+                    for day in week.contributionDays {
+                        weeks[day.weekday].append(day.color)
+                    }
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
 struct GraphView_Previews: PreviewProvider {
     static var previews: some View {
-        GraphView()
+        GraphView(userName: "hikaruaohara")
     }
 }

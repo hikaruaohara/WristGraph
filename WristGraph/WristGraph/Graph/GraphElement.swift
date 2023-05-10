@@ -7,6 +7,26 @@
 
 import SwiftUI
 
+struct GraphElement: View {
+    private let color: Color
+
+    init(color: String) {
+        self.color = Color(hex: color)
+    }
+
+    var body: some View {
+        RoundedRectangle(cornerRadius: 5)
+            .fill(color)
+            .aspectRatio(1, contentMode: .fit)
+    }
+}
+
+struct GraphElement_Previews: PreviewProvider {
+    static var previews: some View {
+        GraphElement(color: "#9be9a8")
+    }
+}
+
 extension Color {
     init(hex: String) {
         let hex_ = hex.replacingOccurrences(of: "#", with: "")
@@ -23,27 +43,5 @@ extension Color {
         }
 
         self.init(red: 0, green: 0, blue: 0)
-    }
-}
-
-struct GraphElement: View {
-    private let color: Color
-
-    init(color: String) {
-        self.color = Color(hex: color)
-    }
-
-    var body: some View {
-        VStack {
-            RoundedRectangle(cornerRadius: 8)
-                .fill(color)
-                .aspectRatio(1, contentMode: .fit)
-        }
-    }
-}
-
-struct GraphElement_Previews: PreviewProvider {
-    static var previews: some View {
-        GraphElement(color: "#9be9a8")
     }
 }
