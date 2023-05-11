@@ -9,10 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var followers = UserDefaults.standard.stringArray(forKey: "followers") ?? [String]()
+
     var body: some View {
         GeometryReader { geometry in
-            ForEach(followers, id: \.self) { follower in
-                NavigationLink(destination: GraphView(userName: follower)) {
+            List {
+                ForEach(followers, id: \.self) { follower in
                     ListItem(userName: follower)
                         .frame(height: 41 * geometry.size.width / 70)
                 }

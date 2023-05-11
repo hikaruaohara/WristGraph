@@ -101,6 +101,8 @@
 		1738571C2A0A98DF00DA7204 = {
 			isa = PBXGroup;
 			children = (
+				1738574C2A0AA99800DA7204 /* API */,
+				17F710FF2A0B5C420042D8F2 /* Graph */,
 				173857272A0A98DF00DA7204 /* WristGraph */,
 				173857392A0A98E100DA7204 /* WristGraph Watch App */,
 				173857262A0A98DF00DA7204 /* Products */,
@@ -122,10 +124,7 @@
 			children = (
 				173857282A0A98DF00DA7204 /* WristGraphApp.swift */,
 				1738572A2A0A98DF00DA7204 /* ContentView.swift */,
-				171536612A0BE00900CE23B5 /* ListItem.swift */,
 				1738572C2A0A98E100DA7204 /* Assets.xcassets */,
-				17F710FF2A0B5C420042D8F2 /* Graph */,
-				1738574C2A0AA99800DA7204 /* API */,
 				1738572E2A0A98E100DA7204 /* Preview Content */,
 			);
 			path = WristGraph;
@@ -181,6 +180,7 @@
 			children = (
 				17F710FC2A0B5B2F0042D8F2 /* GraphView.swift */,
 				17F711002A0B5C990042D8F2 /* GraphElement.swift */,
+				171536612A0BE00900CE23B5 /* ListItem.swift */,
 			);
 			path = Graph;
 			sourceTree = "<group>";
