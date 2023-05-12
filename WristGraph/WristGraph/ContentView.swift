@@ -98,8 +98,10 @@ struct ContentView: View {
                 }
             }
         }
-        .onChange(of: scenePhase) { _ in
-            saveAndSend()
+        .onChange(of: scenePhase) { phase in
+            if phase == .active {
+                saveAndSend()
+            }
         }
     }
 
