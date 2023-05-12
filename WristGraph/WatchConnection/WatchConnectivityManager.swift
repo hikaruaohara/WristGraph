@@ -38,6 +38,7 @@ final class WatchConnectivityManager: NSObject, ObservableObject {
 
         do {
             try WCSession.default.updateApplicationContext(["followers": followers])
+            print("sent!")
         } catch {
             print(error.localizedDescription)
         }
@@ -47,7 +48,10 @@ final class WatchConnectivityManager: NSObject, ObservableObject {
 extension WatchConnectivityManager: WCSessionDelegate {
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         if let followers = applicationContext["followers"] as? [String] {
-            self.followers = followers
+            DispatchQueue.main.async {
+                self.followers = followers
+            }
+            print("received!")
         }
     }
 

@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct GraphView: View {
     private let userName: String
     private let numOfColumns = 16
     @State private var weeks = Array(repeating: [String](), count: 7)
+    @State private var apiError: Error?
 
     init(userName: String) {
         self.userName = userName
@@ -19,15 +21,19 @@ struct GraphView: View {
     var body: some View {
         VStack {
             if (!weeks[0].isEmpty) {
-                GeometryReader { geometry in
-                    let size = geometry.size.width * 5 / (6 * CGFloat(numOfColumns) - 1)
+                #if os(iOS)
+                let width = UIScreen.main.bounds.width
+                #elseif os(watchOS)
+                let width = WKInterfaceDevice.current().screenBounds.width
+                #endif
 
-                    Grid(horizontalSpacing: size / 5, verticalSpacing: size / 5) {
-                        ForEach(0..<weeks.count, id: \.self) { i in
-                            GridRow {
-                                ForEach(0..<weeks[i].count, id: \.self) { j in
-                                    GraphElement(contributionLevel: weeks[i][j], size: size)
-                                }
+                let size = width * 5 / (6 * CGFloat(numOfColumns) - 1)
+
+                Grid(horizontalSpacing: size / 5, verticalSpacing: size / 5) {
+                    ForEach(0..<weeks.count, id: \.self) { i in
+                        GridRow {
+                            ForEach(0..<weeks[i].count, id: \.self) { j in
+                                GraphElement(contributionLevel: weeks[i][j], size: size)
                             }
                         }
                     }
@@ -46,7 +52,7 @@ struct GraphView: View {
                     }
                 }
             } catch {
-                print(error.localizedDescription)
+                return
             }
         }
     }

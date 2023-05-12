@@ -11,52 +11,108 @@ struct ContentView: View {
     @State private var followers = UserDefaults.standard.stringArray(forKey: "followers") ?? [String]()
     @State private var newName: String = ""
     @State private var isAlertEnabled = false
+    @State private var isSheetEnabled = false
+    @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
+    @Environment(\.scenePhase) private var scenePhase
+
+    init() {
+        saveAndSend()
+    }
 
     var body: some View {
-        GeometryReader { geometry in
-            NavigationView {
-                List {
+        NavigationView {
+            ScrollView {
+                VStack {
                     ForEach(followers, id: \.self) { follower in
                         ListItem(userName: follower)
-                            .frame(height: 41 * geometry.size.width / 90)
-                    }
-                    .onMove(perform: { index, destination in
-                        followers.move(fromOffsets: index, toOffset: destination)
-                        UserDefaults.standard.set(followers, forKey: "followers")
-                    })
-                    .onDelete { index in
-                        followers.remove(atOffsets: index)
-                        UserDefaults.standard.set(followers, forKey: "followers")
+                        Divider()
                     }
                 }
-                .navigationTitle("Contribution")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
+            }
+            .scrollIndicators(.hidden)
+            .navigationTitle("Contribution")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        isSheetEnabled = true
+                    } label: {
+                        Image(systemName: "list.bullet")
+                    }
+                }
+            }
+            .sheet(isPresented: $isSheetEnabled) {
+                NavigationView {
+                    List {
+                        ForEach(followers, id: \.self) { follower in
+                            Text(follower)
+                        }
+                        .onMove { index, destination in
+                            followers.move(fromOffsets: index, toOffset: destination)
+                        }
+                        .onDelete { index in
+                            followers.remove(atOffsets: index)
+                        }
+
                         Button {
                             isAlertEnabled = true
                         } label: {
-                            Image(systemName: "plus")
+                            HStack {
+                                Image(systemName: "plus")
+                                Text("Add")
+                                    .foregroundColor(.blue)
+                            }
                         }
-                        .padding()
-                    }
-                }
-                .alert("Add an github account", isPresented: $isAlertEnabled) {
-                    TextField("Enter a github account username", text: $newName)
-                        .disableAutocorrection(true)
+                        .alert("Add an github account", isPresented: $isAlertEnabled) {
+                            TextField("Enter a username", text: $newName)
+                                .disableAutocorrection(true)
+                                .autocapitalization(.none)
 
-                    Button("Add") {
-                        followers.append(newName)
-                        UserDefaults.standard.set(followers, forKey: "followers")
-                        newName = ""
-                    }
+                            Button(role: .cancel) {
+                                newName = ""
+                                isAlertEnabled = false
+                            } label: {
+                                Text("Cancel")
+                            }
 
-                    Button("Cancel", role: .cancel) {
-                        newName = ""
+                            Button() {
+                                addFollowers()
+                                isAlertEnabled = false
+                            } label: {
+                                Text("Add")
+                            }
+                        }
+                    }
+                    .onDisappear {
+                        saveAndSend()
+                    }
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button {
+                                isSheetEnabled = false
+                            } label: {
+                                Text("Done")
+                            }
+                        }
                     }
                 }
             }
         }
+        .onChange(of: scenePhase) { _ in
+            saveAndSend()
+        }
+    }
+
+    func saveAndSend() {
+        UserDefaults.standard.set(followers, forKey: "followers")
+        connectivityManager.send(followers)
+    }
+
+    func addFollowers() {
+        if !followers.contains(newName) && !newName.isEmpty {
+            followers.append(newName)
+        }
+        newName = ""
     }
 }
 

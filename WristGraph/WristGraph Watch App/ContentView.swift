@@ -6,19 +6,21 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct ContentView: View {
     @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
 
     var body: some View {
-        GeometryReader { geometry in
-            List {
+        ScrollView {
+            VStack {
                 ForEach(connectivityManager.followers, id: \.self) { follower in
                     ListItem(userName: follower)
-                        .frame(height: 41 * geometry.size.width / 70)
+                    Divider()
                 }
             }
         }
+        .scrollIndicators(.hidden)
     }
 }
 
