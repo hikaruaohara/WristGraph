@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var followers = UserDefaults.standard.stringArray(forKey: "followers") ?? [String]()
+    @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
 
     var body: some View {
         GeometryReader { geometry in
             List {
-                ForEach(followers, id: \.self) { follower in
+                ForEach(connectivityManager.followers, id: \.self) { follower in
                     ListItem(userName: follower)
                         .frame(height: 41 * geometry.size.width / 70)
                 }
