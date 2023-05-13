@@ -9,10 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var followers = UserDefaults.standard.stringArray(forKey: "followers") ?? [String]()
-    @State private var numOfColumns = UserDefaults.standard.integer(forKey: "numOfColumns")
+    @State private var numOfColumns = 16
     @State private var showSheet = false
     @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
     @Environment(\.scenePhase) private var scenePhase
+
+    init() {
+        let defaultNumOfColumns = UserDefaults.standard.integer(forKey: "numOfColumns")
+
+        if defaultNumOfColumns >= 16 && defaultNumOfColumns <= 53 {
+            numOfColumns = defaultNumOfColumns
+        }
+    }
 
     var body: some View {
         NavigationView {

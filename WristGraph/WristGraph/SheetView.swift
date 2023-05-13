@@ -20,7 +20,7 @@ struct SheetView: View {
             VStack {
                 List {
                     Section(header: Text("Number of columns")) {
-                        Stepper(value: $numOfColumns, in: 10...53, step: 1) {
+                        Stepper(value: $numOfColumns, in: 16...53, step: 1) {
                             Text("\(numOfColumns)")
                         }
                     }
