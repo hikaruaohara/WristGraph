@@ -11,26 +11,21 @@ import UIKit
 struct GraphView: View {
     let userName: String
     private let numOfColumns: Int
-    private let graphFrame: (width: CGFloat, height: CGFloat)
+    @State private var graphFrame = (width: CGFloat(0), height: CGFloat(0))
     @State private var weeks = Array(repeating: [String](), count: 7)
     @State private var isLoading = true
     @Environment(\.scenePhase) private var scenePhase
 
     init(userName: String, numOfColumns: Int) {
         self.userName = userName
+
         if numOfColumns >= 2 && numOfColumns <= 53 {
             self.numOfColumns = numOfColumns
         } else {
             self.numOfColumns = 16
         }
 
-        #if os(iOS)
-        graphFrame.width = UIScreen.main.bounds.width
-        #elseif os(watchOS)
-        graphFrame.width = WKInterfaceDevice.current().screenBounds.width
-        #endif
-
-        graphFrame.height = graphFrame.width * 41 / (6 * CGFloat(self.numOfColumns) - 1)
+        setFrame()
     }
 
     var body: some View {
@@ -54,21 +49,38 @@ struct GraphView: View {
         .frame(width: graphFrame.width, height: graphFrame.height)
         .onTapGesture {
             Task {
-                await fetchData()
+                await reload()
             }
         }
         .onChange(of: scenePhase) { phase in
             if phase == .active {
                 Task {
-                    await fetchData()
+                    await reload()
                 }
             }
         }
     }
 
-    func fetchData() async {
+    func reload() async {
         isLoading = true
 
+        setFrame()
+        await fetchData()
+
+        isLoading = false
+    }
+
+    func setFrame() {
+        #if os(iOS)
+        graphFrame.width = UIScreen.main.bounds.width
+        #elseif os(watchOS)
+        graphFrame.width = WKInterfaceDevice.current().screenBounds.width
+        #endif
+
+        graphFrame.height = graphFrame.width * 41 / (6 * CGFloat(self.numOfColumns) - 1)
+    }
+
+    func fetchData() async {
         weeks = Array(repeating: [String](), count: 7)
 
         do {
@@ -82,8 +94,6 @@ struct GraphView: View {
         } catch {
             print(error.localizedDescription)
         }
-
-        isLoading = false
     }
 }
 
