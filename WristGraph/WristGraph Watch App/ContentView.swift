@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Foundation
 
 struct ContentView: View {
     @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
@@ -18,7 +17,7 @@ struct ContentView: View {
             }
         } else {
             ScrollView {
-                VStack {
+                VStack(alignment: .leading) {
                     ForEach(connectivityManager.followers, id: \.self) { follower in
                         Text(follower)
                             .bold()

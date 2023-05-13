@@ -13,7 +13,7 @@ struct GraphView: View {
     private let numOfColumns: Int
     private let graphFrame: (width: CGFloat, height: CGFloat)
     @State private var weeks = Array(repeating: [String](), count: 7)
-    @State private var isLoading = true
+    @State private var isLoading = false
     @Environment(\.scenePhase) private var scenePhase
 
     init(userName: String, numOfColumns: Int) {
@@ -53,6 +53,7 @@ struct GraphView: View {
                 await fetchData()
             }
         }
+        .disabled(isLoading)
         .onChange(of: scenePhase) { phase in
             if phase == .active {
                 Task {
@@ -66,6 +67,10 @@ struct GraphView: View {
     }
 
     func fetchData() async {
+        if isLoading {
+            return
+        }
+
         isLoading = true
 
         weeks = Array(repeating: [String](), count: 7)

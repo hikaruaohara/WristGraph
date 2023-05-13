@@ -25,12 +25,20 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(alignment: .leading) {
-                    ForEach(followers, id: \.self) { follower in
-                        Text(follower)
-                            .bold()
-                        GraphView(userName: follower, numOfColumns: numOfColumns)
-                        Divider()
+                if followers.isEmpty {
+                    VStack {
+                        Text("Add GitHub accounts")
+                            .foregroundColor(.gray)
+                            .opacity(0.5)
+                    }
+                } else {
+                    VStack(alignment: .leading) {
+                        ForEach(followers, id: \.self) { follower in
+                            Text(follower)
+                                .bold()
+                            GraphView(userName: follower, numOfColumns: numOfColumns)
+                            Divider()
+                        }
                     }
                 }
             }
@@ -49,7 +57,6 @@ struct ContentView: View {
             .sheet(isPresented: $showSheet) {
                 SheetView(followers: $followers, showSheet: $showSheet, numOfColumns: $numOfColumns)
             }
-
         }
         .onChange(of: scenePhase) { phase in
             if phase == .active {
