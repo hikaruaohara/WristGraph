@@ -18,51 +18,57 @@ struct SheetView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Stepper(value: $numOfColumns, in: 10...53, step: 1) {
-                    Text("\(numOfColumns)")
-                }
-                .padding()
-
                 List {
-                    ForEach(followers, id: \.self) { follower in
-                        Text(follower)
-                    }
-                    .onMove { index, destination in
-                        followers.move(fromOffsets: index, toOffset: destination)
-                    }
-                    .onDelete { index in
-                        followers.remove(atOffsets: index)
-                    }
-
-                    Button {
-                        showAlert = true
-                    } label: {
-                        HStack {
-                            Image(systemName: "plus")
-                            Text("Add")
-                                .foregroundColor(.blue)
+                    Section(header: Text("Number of columns")) {
+                        Stepper(value: $numOfColumns, in: 10...53, step: 1) {
+                            Text("\(numOfColumns)")
                         }
                     }
-                    .alert("Add an github account", isPresented: $showAlert) {
-                        TextField("Enter a username", text: $newName)
-                            .disableAutocorrection(true)
-                            .autocapitalization(.none)
+                    .textCase(.none)
 
-                        Button(role: .cancel) {
-                            newName = ""
-                            showAlert = false
+                    Section(header: Text("Contribution graph list")) {
+                        ForEach(followers, id: \.self) { follower in
+                            Text(follower)
+                        }
+                        .onMove { index, destination in
+                            followers.move(fromOffsets: index, toOffset: destination)
+                        }
+                        .onDelete { index in
+                            followers.remove(atOffsets: index)
+                        }
+
+                        Button {
+                            showAlert = true
                         } label: {
-                            Text("Cancel")
+                            HStack {
+                                Image(systemName: "plus")
+                                Text("Add")
+                            }
+                            .foregroundColor(.blue)
                         }
+                        .alert("Add an github account", isPresented: $showAlert) {
+                            TextField("Enter a username", text: $newName)
+                                .disableAutocorrection(true)
+                                .autocapitalization(.none)
 
-                        Button() {
-                            addFollowers()
-                            showAlert = false
-                        } label: {
-                            Text("Add")
+                            Button(role: .cancel) {
+                                newName = ""
+                                showAlert = false
+                            } label: {
+                                Text("Cancel")
+                            }
+
+                            Button() {
+                                addFollowers()
+                                showAlert = false
+                            } label: {
+                                Text("Add")
+                            }
                         }
                     }
+                    .textCase(.none)
                 }
+                .listStyle(.insetGrouped)
                 .onDisappear {
                     saveAndSend()
                 }
@@ -95,7 +101,7 @@ struct SheetView: View {
 }
 
 struct SheetView_Previews: PreviewProvider {
-    @State private static var followers = ["hikaruaohara"]
+    @State private static var followers = ["hikaruaohara", "tomota8686", "znnz0"]
     @State private static var showSheet = true
     @State private static var numOfColumns = 16
 
