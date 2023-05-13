@@ -12,15 +12,23 @@ struct ContentView: View {
     @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
 
     var body: some View {
-        ScrollView {
+        if connectivityManager.followers.isEmpty {
             VStack {
-                ForEach(connectivityManager.followers, id: \.self) { follower in
-                    ListItem(userName: follower)
-                    Divider()
+                ProgressView()
+            }
+        } else {
+            ScrollView {
+                VStack {
+                    ForEach(connectivityManager.followers, id: \.self) { follower in
+                        Text(follower)
+                            .bold()
+                        GraphView(userName: follower, numOfColumns: connectivityManager.numOfColumns)
+                        Divider()
+                    }
                 }
             }
+            .scrollIndicators(.hidden)
         }
-        .scrollIndicators(.hidden)
     }
 }
 

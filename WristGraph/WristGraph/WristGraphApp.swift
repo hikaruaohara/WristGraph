@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@main
+ @main
 struct WristGraphApp: App {
     var body: some Scene {
         WindowGroup {

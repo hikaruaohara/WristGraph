@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		171536622A0BE00900CE23B5 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171536612A0BE00900CE23B5 /* ListItem.swift */; };
-		171536632A0BE00900CE23B5 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171536612A0BE00900CE23B5 /* ListItem.swift */; };
+		171232492A0EB42D00DB3338 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171232482A0EB42D00DB3338 /* SheetView.swift */; };
 		171C854C2A0D3E7C004C11FF /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C854B2A0D3E7C004C11FF /* WatchConnectivityManager.swift */; };
 		171C854D2A0D3E7C004C11FF /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C854B2A0D3E7C004C11FF /* WatchConnectivityManager.swift */; };
 		173857292A0A98DF00DA7204 /* WristGraphApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173857282A0A98DF00DA7204 /* WristGraphApp.swift */; };
@@ -61,7 +60,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		171536612A0BE00900CE23B5 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		171232482A0EB42D00DB3338 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		171C854B2A0D3E7C004C11FF /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
 		173857252A0A98DF00DA7204 /* WristGraph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WristGraph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		173857282A0A98DF00DA7204 /* WristGraphApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WristGraphApp.swift; sourceTree = "<group>"; };
@@ -76,6 +75,9 @@
 		173857562A0AB70800DA7204 /* Target.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Target.swift; sourceTree = "<group>"; };
 		1738575D2A0ABF7F00DA7204 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		173857602A0AC00300DA7204 /* ParseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseModel.swift; sourceTree = "<group>"; };
+		1745896C2A0ECBD700D0FC47 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS9.4.sdk/System/Library/Frameworks/WatchKit.framework; sourceTree = DEVELOPER_DIR; };
+		1745896E2A0ECC0B00D0FC47 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS16.4.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
+		174589702A0ECC1900D0FC47 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS9.4.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
 		17F710F42A0B55870042D8F2 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		17F710FC2A0B5B2F0042D8F2 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		17F711002A0B5C990042D8F2 /* GraphElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphElement.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				173857282A0A98DF00DA7204 /* WristGraphApp.swift */,
 				1738572A2A0A98DF00DA7204 /* ContentView.swift */,
+				171232482A0EB42D00DB3338 /* SheetView.swift */,
 				1738572C2A0A98E100DA7204 /* Assets.xcassets */,
 				1738572E2A0A98E100DA7204 /* Preview Content */,
 			);
@@ -183,6 +186,9 @@
 		179A7F9D2A0AC833000276A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1745896E2A0ECC0B00D0FC47 /* WatchConnectivity.framework */,
+				174589702A0ECC1900D0FC47 /* WatchConnectivity.framework */,
+				1745896C2A0ECBD700D0FC47 /* WatchKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -192,7 +198,6 @@
 			children = (
 				17F710FC2A0B5B2F0042D8F2 /* GraphView.swift */,
 				17F711002A0B5C990042D8F2 /* GraphElement.swift */,
-				171536612A0BE00900CE23B5 /* ListItem.swift */,
 			);
 			path = Graph;
 			sourceTree = "<group>";
@@ -311,8 +316,8 @@
 				1738572B2A0A98DF00DA7204 /* ContentView.swift in Sources */,
 				17F711012A0B5C990042D8F2 /* GraphElement.swift in Sources */,
 				173857612A0AC00300DA7204 /* ParseModel.swift in Sources */,
-				171536622A0BE00900CE23B5 /* ListItem.swift in Sources */,
 				171C854C2A0D3E7C004C11FF /* WatchConnectivityManager.swift in Sources */,
+				171232492A0EB42D00DB3338 /* SheetView.swift in Sources */,
 				17F710FD2A0B5B2F0042D8F2 /* GraphView.swift in Sources */,
 				173857292A0A98DF00DA7204 /* WristGraphApp.swift in Sources */,
 				173857572A0AB70800DA7204 /* Target.swift in Sources */,
@@ -328,7 +333,6 @@
 				1738573D2A0A98E100DA7204 /* ContentView.swift in Sources */,
 				17F711022A0B5C990042D8F2 /* GraphElement.swift in Sources */,
 				1738573B2A0A98E100DA7204 /* WristGraphApp.swift in Sources */,
-				171536632A0BE00900CE23B5 /* ListItem.swift in Sources */,
 				171C854D2A0D3E7C004C11FF /* WatchConnectivityManager.swift in Sources */,
 				17F710FE2A0B5B2F0042D8F2 /* GraphView.swift in Sources */,
 				17F710F62A0B57100042D8F2 /* ParseModel.swift in Sources */,

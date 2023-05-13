@@ -9,94 +9,39 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var followers = UserDefaults.standard.stringArray(forKey: "followers") ?? [String]()
-    @State private var newName: String = ""
-    @State private var isAlertEnabled = false
-    @State private var isSheetEnabled = false
+    @State private var numOfColumns = UserDefaults.standard.integer(forKey: "numOfColumns")
+    @State private var showSheet = false
     @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
     @Environment(\.scenePhase) private var scenePhase
-
-    init() {
-        saveAndSend()
-    }
 
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack {
+                VStack(alignment: .leading) {
                     ForEach(followers, id: \.self) { follower in
-                        ListItem(userName: follower)
+                        Text(follower)
+                            .bold()
+                        GraphView(userName: follower, numOfColumns: numOfColumns)
                         Divider()
                     }
                 }
             }
             .scrollIndicators(.hidden)
-            .navigationTitle("Contribution")
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Contribution Graphs")
+            .navigationBarTitleDisplayMode(.automatic)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        isSheetEnabled = true
+                        showSheet = true
                     } label: {
                         Image(systemName: "list.bullet")
                     }
                 }
             }
-            .sheet(isPresented: $isSheetEnabled) {
-                NavigationView {
-                    List {
-                        ForEach(followers, id: \.self) { follower in
-                            Text(follower)
-                        }
-                        .onMove { index, destination in
-                            followers.move(fromOffsets: index, toOffset: destination)
-                        }
-                        .onDelete { index in
-                            followers.remove(atOffsets: index)
-                        }
-
-                        Button {
-                            isAlertEnabled = true
-                        } label: {
-                            HStack {
-                                Image(systemName: "plus")
-                                Text("Add")
-                                    .foregroundColor(.blue)
-                            }
-                        }
-                        .alert("Add an github account", isPresented: $isAlertEnabled) {
-                            TextField("Enter a username", text: $newName)
-                                .disableAutocorrection(true)
-                                .autocapitalization(.none)
-
-                            Button(role: .cancel) {
-                                newName = ""
-                                isAlertEnabled = false
-                            } label: {
-                                Text("Cancel")
-                            }
-
-                            Button() {
-                                addFollowers()
-                                isAlertEnabled = false
-                            } label: {
-                                Text("Add")
-                            }
-                        }
-                    }
-                    .onDisappear {
-                        saveAndSend()
-                    }
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button {
-                                isSheetEnabled = false
-                            } label: {
-                                Text("Done")
-                            }
-                        }
-                    }
-                }
+            .sheet(isPresented: $showSheet) {
+                SheetView(followers: $followers, showSheet: $showSheet, numOfColumns: $numOfColumns)
             }
+
         }
         .onChange(of: scenePhase) { phase in
             if phase == .active {
@@ -107,14 +52,8 @@ struct ContentView: View {
 
     func saveAndSend() {
         UserDefaults.standard.set(followers, forKey: "followers")
-        connectivityManager.send(followers)
-    }
-
-    func addFollowers() {
-        if !followers.contains(newName) && !newName.isEmpty {
-            followers.append(newName)
-        }
-        newName = ""
+        UserDefaults.standard.set(numOfColumns, forKey: "numOfColumns")
+        connectivityManager.send(followers: followers, numOfColumns: numOfColumns)
     }
 }
 

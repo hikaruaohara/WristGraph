@@ -10,6 +10,7 @@ import WatchConnectivity
 
 final class WatchConnectivityManager: NSObject, ObservableObject {
     @Published var followers: [String] = []
+    @Published var numOfColumns: Int = 16
 
     static let shared = WatchConnectivityManager()
 
@@ -22,7 +23,7 @@ final class WatchConnectivityManager: NSObject, ObservableObject {
         }
     }
 
-    func send(_ followers: [String]) {
+    func send(followers: [String], numOfColumns: Int) {
         guard WCSession.default.activationState == .activated else {
           return
         }
@@ -37,8 +38,7 @@ final class WatchConnectivityManager: NSObject, ObservableObject {
         #endif
 
         do {
-            try WCSession.default.updateApplicationContext(["followers": followers])
-            print("sent!")
+            try WCSession.default.updateApplicationContext(["followers": followers, "numOfColumns": numOfColumns])
         } catch {
             print(error.localizedDescription)
         }
@@ -51,7 +51,12 @@ extension WatchConnectivityManager: WCSessionDelegate {
             DispatchQueue.main.async {
                 self.followers = followers
             }
-            print("received!")
+        }
+
+        if let numOfColumns = applicationContext["numOfColumns"] as? Int {
+            DispatchQueue.main.async {
+                self.numOfColumns = numOfColumns
+            }
         }
     }
 

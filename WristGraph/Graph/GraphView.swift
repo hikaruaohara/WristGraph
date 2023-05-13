@@ -9,25 +9,36 @@ import SwiftUI
 import UIKit
 
 struct GraphView: View {
-    private let userName: String
-    private let numOfColumns = 16
+    let userName: String
+    private let numOfColumns: Int
+    private let graphFrame: (width: CGFloat, height: CGFloat)
     @State private var weeks = Array(repeating: [String](), count: 7)
-    @State private var apiError: Error?
+    @State private var isLoading = true
+    @Environment(\.scenePhase) private var scenePhase
 
-    init(userName: String) {
+    init(userName: String, numOfColumns: Int) {
         self.userName = userName
+        if numOfColumns >= 2 && numOfColumns <= 53 {
+            self.numOfColumns = numOfColumns
+        } else {
+            self.numOfColumns = 16
+        }
+
+        #if os(iOS)
+        graphFrame.width = UIScreen.main.bounds.width
+        #elseif os(watchOS)
+        graphFrame.width = WKInterfaceDevice.current().screenBounds.width
+        #endif
+
+        graphFrame.height = graphFrame.width * 41 / (6 * CGFloat(self.numOfColumns) - 1)
     }
 
     var body: some View {
         VStack {
-            if (!weeks[0].isEmpty) {
-                #if os(iOS)
-                let width = UIScreen.main.bounds.width
-                #elseif os(watchOS)
-                let width = WKInterfaceDevice.current().screenBounds.width
-                #endif
-
-                let size = width * 5 / (6 * CGFloat(numOfColumns) - 1)
+            if (isLoading) {
+                ProgressView()
+            } else {
+                let size = graphFrame.height * 5 / 41
 
                 Grid(horizontalSpacing: size / 5, verticalSpacing: size / 5) {
                     ForEach(0..<weeks.count, id: \.self) { i in
@@ -40,26 +51,44 @@ struct GraphView: View {
                 }
             }
         }
-        .task {
-            weeks = Array(repeating: [String](), count: 7)
-
-            do {
-                let weeks_ = try await Request.shared.getGraph(userName: userName)
-                let last20Weeks = weeks_[weeks_.count - numOfColumns ..< weeks_.count]
-                for week in last20Weeks {
-                    for day in week.contributionDays {
-                        weeks[day.weekday].append(day.contributionLevel)
-                    }
-                }
-            } catch {
-                return
+        .frame(width: graphFrame.width, height: graphFrame.height)
+        .onTapGesture {
+            Task {
+                await fetchData()
             }
         }
+        .onChange(of: scenePhase) { phase in
+            if phase == .active {
+                Task {
+                    await fetchData()
+                }
+            }
+        }
+    }
+
+    func fetchData() async {
+        isLoading = true
+
+        weeks = Array(repeating: [String](), count: 7)
+
+        do {
+            let weeks_ = try await Request.shared.getGraph(userName: userName)
+            let displayedWeeks = weeks_[weeks_.count - numOfColumns ..< weeks_.count]
+            for week in displayedWeeks {
+                for day in week.contributionDays {
+                    weeks[day.weekday].append(day.contributionLevel)
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+
+        isLoading = false
     }
 }
 
 struct GraphView_Previews: PreviewProvider {
     static var previews: some View {
-        GraphView(userName: "hikaruaohara")
+        GraphView(userName: "hikaruaohara", numOfColumns: 16)
     }
 }
