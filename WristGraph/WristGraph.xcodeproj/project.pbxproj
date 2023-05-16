@@ -126,6 +126,8 @@
 		1745896C2A0ECBD700D0FC47 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS9.4.sdk/System/Library/Frameworks/WatchKit.framework; sourceTree = DEVELOPER_DIR; };
 		1745896E2A0ECC0B00D0FC47 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS16.4.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
 		174589702A0ECC1900D0FC47 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS9.4.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
+		175E12FC2A136D6F00679E04 /* WristGraph.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WristGraph.entitlements; sourceTree = "<group>"; };
+		175E12FD2A13700E00679E04 /* WristGraphWidget WatchExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WristGraphWidget WatchExtension.entitlements"; sourceTree = "<group>"; };
 		1782BDBF2A112BC2000DA19F /* WristGraph Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WristGraph Watch App.entitlements"; sourceTree = "<group>"; };
 		17F710F42A0B55870042D8F2 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		17F710FC2A0B5B2F0042D8F2 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 		1738571C2A0A98DF00DA7204 = {
 			isa = PBXGroup;
 			children = (
+				175E12FD2A13700E00679E04 /* WristGraphWidget WatchExtension.entitlements */,
 				171C854A2A0D3E58004C11FF /* WatchConnection */,
 				1738574C2A0AA99800DA7204 /* API */,
 				17F710FF2A0B5C420042D8F2 /* Graph */,
@@ -208,6 +211,7 @@
 		173857272A0A98DF00DA7204 /* WristGraph */ = {
 			isa = PBXGroup;
 			children = (
+				175E12FC2A136D6F00679E04 /* WristGraph.entitlements */,
 				173857282A0A98DF00DA7204 /* WristGraphApp.swift */,
 				1738572A2A0A98DF00DA7204 /* ContentView.swift */,
 				171232482A0EB42D00DB3338 /* SheetView.swift */,
@@ -488,6 +492,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "WristGraphWidget WatchExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N38H3ZBTB2;
@@ -502,7 +507,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.icloud.hikaruaohara.WristGraph.watchkitapp.WristGraphWidget-Watch";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hikaruaohara.WristGraph.watchkitapp.WristGraphWidget-Watch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -518,6 +523,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "WristGraphWidget WatchExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N38H3ZBTB2;
@@ -532,7 +538,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.icloud.hikaruaohara.WristGraph.watchkitapp.WristGraphWidget-Watch";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hikaruaohara.WristGraph.watchkitapp.WristGraphWidget-Watch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -674,7 +680,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.icloud.hikaruaohara.WristGraph.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hikaruaohara.WristGraph.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -705,7 +711,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.icloud.hikaruaohara.WristGraph.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hikaruaohara.WristGraph.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -723,6 +729,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WristGraph/WristGraph.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WristGraph/Preview Content\"";
@@ -741,8 +749,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.icloud.hikaruaohara.WristGraph;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hikaruaohara.WristGraph;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -759,6 +768,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WristGraph/WristGraph.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WristGraph/Preview Content\"";
@@ -777,8 +788,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.icloud.hikaruaohara.WristGraph;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hikaruaohara.WristGraph;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
