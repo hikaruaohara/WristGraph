@@ -8,25 +8,43 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
+    private let sharedUserDefaults = UserDefaults(suiteName: "N38H3ZBTB2.group.com.hikaruaohara.WristGraph")!
+    @AppStorage("numOfColumns") private var numOfColumns = 16
+    @State private var followers = [String]()
+    @Environment(\.scenePhase) private var scenePhase
+
+    init() {
+        loadUserDefaults()
+    }
 
     var body: some View {
-        if connectivityManager.followers.isEmpty {
+        if followers.isEmpty {
             VStack {
                 ProgressView()
             }
         } else {
             ScrollView {
                 VStack(alignment: .leading) {
-                    ForEach(connectivityManager.followers, id: \.self) { follower in
+                    ForEach(followers, id: \.self) { follower in
                         Text(follower)
                             .bold()
-                        GraphView(userName: follower, numOfColumns: connectivityManager.numOfColumns)
+                        GraphView(userName: follower, numOfColumns: numOfColumns)
                         Divider()
                     }
                 }
             }
             .scrollIndicators(.hidden)
+            .onChange(of: scenePhase) { phase in
+                if phase == .active {
+                    loadUserDefaults()
+                }
+            }
+        }
+    }
+
+    func loadUserDefaults() {
+        if let defaultFollowers = sharedUserDefaults.stringArray(forKey: "followers") {
+            followers = defaultFollowers
         }
     }
 }

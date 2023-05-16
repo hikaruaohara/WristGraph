@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct SheetView: View {
+    private let sharedUserDefaults = UserDefaults(suiteName: "N38H3ZBTB2.group.com.hikaruaohara.WristGraph")!
+    @AppStorage("numOfColumns") private var numOfColumns = 16
     @Binding var followers: [String]
     @Binding var showSheet: Bool
-    @Binding var numOfColumns: Int
     @State private var showAlert = false
     @State private var newName = ""
-    @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
 
     var body: some View {
         NavigationView {
@@ -59,7 +59,8 @@ struct SheetView: View {
                             }
 
                             Button() {
-                                addFollowers()
+                                addFollowers(newFollowerName: newName)
+                                newName = ""
                                 showAlert = false
                             } label: {
                                 Text("Add")
@@ -70,7 +71,7 @@ struct SheetView: View {
                 }
                 .listStyle(.insetGrouped)
                 .onDisappear {
-                    saveAndSend()
+                    sharedUserDefaults.set(followers, forKey: "followers")
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -86,27 +87,21 @@ struct SheetView: View {
         }
     }
 
-    func saveAndSend() {
-        UserDefaults.standard.set(followers, forKey: "followers")
-        UserDefaults.standard.set(numOfColumns, forKey: "numOfColumns")
-        connectivityManager.send(followers: followers, numOfColumns: numOfColumns)
-    }
+    func addFollowers(newFollowerName: String) {
+        let name = newFollowerName.trimmingCharacters(in: .whitespaces)
 
-    func addFollowers() {
-        if !followers.contains(newName) && !newName.isEmpty {
-            followers.append(newName)
+        if !followers.contains(name) && !name.isEmpty {
+            followers.append(name)
         }
-        newName = ""
     }
 }
 
 struct SheetView_Previews: PreviewProvider {
     @State private static var followers = ["hikaruaohara", "tomota8686", "znnz0"]
     @State private static var showSheet = true
-    @State private static var numOfColumns = 16
 
     static var previews: some View {
-        SheetView(followers: $followers, showSheet: $showSheet, numOfColumns: $numOfColumns)
+        SheetView(followers: $followers, showSheet: $showSheet)
             .environment(\.colorScheme, .dark)
     }
 }

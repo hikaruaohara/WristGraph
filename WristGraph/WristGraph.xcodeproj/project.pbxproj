@@ -21,8 +21,6 @@
 		1715520A2A10BF770086CEEA /* ParseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173857602A0AC00300DA7204 /* ParseModel.swift */; };
 		1715520B2A10BF770086CEEA /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F710F42A0B55870042D8F2 /* AccessToken.swift */; };
 		1715520D2A10BFDD0086CEEA /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 1715520C2A10BFDD0086CEEA /* Moya */; };
-		171C854C2A0D3E7C004C11FF /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C854B2A0D3E7C004C11FF /* WatchConnectivityManager.swift */; };
-		171C854D2A0D3E7C004C11FF /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171C854B2A0D3E7C004C11FF /* WatchConnectivityManager.swift */; };
 		173857292A0A98DF00DA7204 /* WristGraphApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173857282A0A98DF00DA7204 /* WristGraphApp.swift */; };
 		1738572B2A0A98DF00DA7204 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738572A2A0A98DF00DA7204 /* ContentView.swift */; };
 		1738572D2A0A98E100DA7204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1738572C2A0A98E100DA7204 /* Assets.xcassets */; };
@@ -109,7 +107,6 @@
 		171551FB2A10BBC80086CEEA /* WristGraphWidget_Watch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WristGraphWidget_Watch.swift; sourceTree = "<group>"; };
 		171551FD2A10BBC90086CEEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		171551FF2A10BBC90086CEEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		171C854B2A0D3E7C004C11FF /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
 		173857252A0A98DF00DA7204 /* WristGraph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WristGraph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		173857282A0A98DF00DA7204 /* WristGraphApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WristGraphApp.swift; sourceTree = "<group>"; };
 		1738572A2A0A98DF00DA7204 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -175,19 +172,10 @@
 			path = "WristGraphWidget Watch";
 			sourceTree = "<group>";
 		};
-		171C854A2A0D3E58004C11FF /* WatchConnection */ = {
-			isa = PBXGroup;
-			children = (
-				171C854B2A0D3E7C004C11FF /* WatchConnectivityManager.swift */,
-			);
-			path = WatchConnection;
-			sourceTree = "<group>";
-		};
 		1738571C2A0A98DF00DA7204 = {
 			isa = PBXGroup;
 			children = (
 				175E12FD2A13700E00679E04 /* WristGraphWidget WatchExtension.entitlements */,
-				171C854A2A0D3E58004C11FF /* WatchConnection */,
 				1738574C2A0AA99800DA7204 /* API */,
 				17F710FF2A0B5C420042D8F2 /* Graph */,
 				173857272A0A98DF00DA7204 /* WristGraph */,
@@ -445,7 +433,6 @@
 				1738572B2A0A98DF00DA7204 /* ContentView.swift in Sources */,
 				17F711012A0B5C990042D8F2 /* GraphElement.swift in Sources */,
 				173857612A0AC00300DA7204 /* ParseModel.swift in Sources */,
-				171C854C2A0D3E7C004C11FF /* WatchConnectivityManager.swift in Sources */,
 				171232492A0EB42D00DB3338 /* SheetView.swift in Sources */,
 				17F710FD2A0B5B2F0042D8F2 /* GraphView.swift in Sources */,
 				173857292A0A98DF00DA7204 /* WristGraphApp.swift in Sources */,
@@ -462,7 +449,6 @@
 				1738573D2A0A98E100DA7204 /* ContentView.swift in Sources */,
 				17F711022A0B5C990042D8F2 /* GraphElement.swift in Sources */,
 				1738573B2A0A98E100DA7204 /* WristGraphApp.swift in Sources */,
-				171C854D2A0D3E7C004C11FF /* WatchConnectivityManager.swift in Sources */,
 				17F710FE2A0B5B2F0042D8F2 /* GraphView.swift in Sources */,
 				17F710F62A0B57100042D8F2 /* ParseModel.swift in Sources */,
 				173857582A0AB70800DA7204 /* Target.swift in Sources */,
@@ -674,7 +660,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = WristGraph;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.icloud.hikaruaohara.WristGraph;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.hikaruaohara.WristGraph;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -705,7 +691,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = WristGraph;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.icloud.hikaruaohara.WristGraph;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.hikaruaohara.WristGraph;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var followers = UserDefaults.standard.stringArray(forKey: "followers") ?? [String]()
-    @State private var numOfColumns = 16
+    private let sharedUserDefaults = UserDefaults(suiteName: "N38H3ZBTB2.group.com.hikaruaohara.WristGraph")!
+    @AppStorage("numOfColumns") private var numOfColumns = 16
+    @State private var followers = [String]()
     @State private var showSheet = false
-    @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
+    @State private var text = ""
     @Environment(\.scenePhase) private var scenePhase
 
     init() {
-        let defaultNumOfColumns = UserDefaults.standard.integer(forKey: "numOfColumns")
-
-        if defaultNumOfColumns >= 16 && defaultNumOfColumns <= 53 {
-            numOfColumns = defaultNumOfColumns
+        if let defaultFollowers = sharedUserDefaults.stringArray(forKey: "followers") {
+            followers = defaultFollowers
         }
+        text = "no follower"
     }
 
     var body: some View {
@@ -27,12 +27,14 @@ struct ContentView: View {
             ScrollView {
                 if followers.isEmpty {
                     VStack {
+                        Text(text)
                         Text("Add GitHub accounts")
                             .foregroundColor(.gray)
                             .opacity(0.5)
                     }
                 } else {
                     VStack(alignment: .leading) {
+                        Text(text)
                         ForEach(followers, id: \.self) { follower in
                             Text(follower)
                                 .bold()
@@ -55,25 +57,21 @@ struct ContentView: View {
                 }
             }
             .sheet(isPresented: $showSheet) {
-                SheetView(followers: $followers, showSheet: $showSheet, numOfColumns: $numOfColumns)
+                SheetView(followers: $followers, showSheet: $showSheet)
             }
         }
-        .onChange(of: scenePhase) { phase in
-            if phase == .active {
-                saveAndSend()
-            }
-        }
-    }
-
-    func saveAndSend() {
-        UserDefaults.standard.set(followers, forKey: "followers")
-        UserDefaults.standard.set(numOfColumns, forKey: "numOfColumns")
-        connectivityManager.send(followers: followers, numOfColumns: numOfColumns)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+extension UserDefaults {
+    enum Keys: String {
+        case follwers
+        case numOfColumns
     }
 }
