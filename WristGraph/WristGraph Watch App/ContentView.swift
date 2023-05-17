@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    private let sharedUserDefaults = UserDefaults(suiteName: "N38H3ZBTB2.group.com.hikaruaohara.WristGraph")!
     @AppStorage("numOfColumns") private var numOfColumns = 16
-    @State private var followers = [String]()
+    @State private var followers = UserDefaults(suiteName: "N38H3ZBTB2.group.com.hikaruaohara.WristGraph")!.stringArray(forKey: "followers") ?? [String]()
     @Environment(\.scenePhase) private var scenePhase
 
     init() {
@@ -21,6 +20,9 @@ struct ContentView: View {
         if followers.isEmpty {
             VStack {
                 ProgressView()
+                Button("load") {
+                    loadUserDefaults()
+                }
             }
         } else {
             ScrollView {
@@ -30,6 +32,9 @@ struct ContentView: View {
                             .bold()
                         GraphView(userName: follower, numOfColumns: numOfColumns)
                         Divider()
+                    }
+                    Button("load") {
+                        loadUserDefaults()
                     }
                 }
             }
@@ -43,7 +48,7 @@ struct ContentView: View {
     }
 
     func loadUserDefaults() {
-        if let defaultFollowers = sharedUserDefaults.stringArray(forKey: "followers") {
+        if let defaultFollowers = UserDefaults(suiteName: "N38H3ZBTB2.group.com.hikaruaohara.WristGraph")!.stringArray(forKey: "followers") {
             followers = defaultFollowers
         }
     }

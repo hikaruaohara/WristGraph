@@ -126,6 +126,7 @@
 		175E12FC2A136D6F00679E04 /* WristGraph.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WristGraph.entitlements; sourceTree = "<group>"; };
 		175E12FD2A13700E00679E04 /* WristGraphWidget WatchExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WristGraphWidget WatchExtension.entitlements"; sourceTree = "<group>"; };
 		1782BDBF2A112BC2000DA19F /* WristGraph Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WristGraph Watch App.entitlements"; sourceTree = "<group>"; };
+		17A4AF6A2A13D7DD00217CC5 /* WristGraph-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WristGraph-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		17F710F42A0B55870042D8F2 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		17F710FC2A0B5B2F0042D8F2 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		17F711002A0B5C990042D8F2 /* GraphElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphElement.swift; sourceTree = "<group>"; };
@@ -220,6 +221,7 @@
 		173857392A0A98E100DA7204 /* WristGraph Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				17A4AF6A2A13D7DD00217CC5 /* WristGraph-Watch-App-Info.plist */,
 				1782BDBF2A112BC2000DA19F /* WristGraph Watch App.entitlements */,
 				1738573A2A0A98E100DA7204 /* WristGraphApp.swift */,
 				1738573C2A0A98E100DA7204 /* ContentView.swift */,
@@ -658,6 +660,7 @@
 				DEVELOPMENT_TEAM = N38H3ZBTB2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WristGraph-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WristGraph;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.hikaruaohara.WristGraph;
@@ -689,6 +692,7 @@
 				DEVELOPMENT_TEAM = N38H3ZBTB2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "WristGraph-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WristGraph;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.hikaruaohara.WristGraph;

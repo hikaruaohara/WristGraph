@@ -12,7 +12,6 @@ struct WristGraphApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .defaultAppStorage(UserDefaults(suiteName: "N38H3ZBTB2.group.com.hikaruaohara.WristGraph")!)
         }
     }
 }

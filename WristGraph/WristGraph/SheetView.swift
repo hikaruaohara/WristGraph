@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SheetView: View {
-    private let sharedUserDefaults = UserDefaults(suiteName: "N38H3ZBTB2.group.com.hikaruaohara.WristGraph")!
     @AppStorage("numOfColumns") private var numOfColumns = 16
     @Binding var followers: [String]
     @Binding var showSheet: Bool
@@ -71,7 +70,7 @@ struct SheetView: View {
                 }
                 .listStyle(.insetGrouped)
                 .onDisappear {
-                    sharedUserDefaults.set(followers, forKey: "followers")
+                    UserDefaults.standard.set(followers, forKey: "followers")
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
