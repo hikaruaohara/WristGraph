@@ -12,6 +12,7 @@ struct ContentView: View {
     @AppStorage("numOfColumns") private var numOfColumns = 16
     @State private var followers = UserDefaults.standard.stringArray(forKey: "followers") ?? [String]()
     @State private var showSheet = false
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         NavigationView {
@@ -48,8 +49,10 @@ struct ContentView: View {
             .sheet(isPresented: $showSheet) {
                 SheetView(followers: $followers, showSheet: $showSheet)
             }
-            .onAppear {
-                saveAndSend(followers: followers, numOfColumns: numOfColumns)
+            .onChange(of: scenePhase) { phase in
+                if phase == .active {
+                    saveAndSend(followers: followers, numOfColumns: numOfColumns)
+                }
             }
         }
     }
