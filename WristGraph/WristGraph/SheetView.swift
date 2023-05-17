@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SheetView: View {
+    @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
     @AppStorage("numOfColumns") private var numOfColumns = 16
     @Binding var followers: [String]
     @Binding var showSheet: Bool
@@ -70,7 +71,7 @@ struct SheetView: View {
                 }
                 .listStyle(.insetGrouped)
                 .onDisappear {
-                    UserDefaults.standard.set(followers, forKey: "followers")
+                    saveAndSend(followers: followers, numOfColumns: numOfColumns)
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -84,6 +85,11 @@ struct SheetView: View {
                 }
             }
         }
+    }
+
+    func saveAndSend(followers: [String], numOfColumns: Int) {
+        UserDefaults.standard.set(followers, forKey: "followers")
+        connectivityManager.send(followers: followers, numOfColumns: numOfColumns)
     }
 
     func addFollowers(newFollowerName: String) {

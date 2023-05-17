@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
     @AppStorage("numOfColumns") private var numOfColumns = 16
     @State private var followers = UserDefaults(suiteName: "N38H3ZBTB2.group.com.hikaruaohara.WristGraph")!.stringArray(forKey: "followers") ?? [String]()
     @Environment(\.scenePhase) private var scenePhase
@@ -17,15 +18,14 @@ struct ContentView: View {
     }
 
     var body: some View {
-        if followers.isEmpty {
-            VStack {
-                ProgressView()
-                Button("load") {
-                    loadUserDefaults()
+        ScrollView {
+            if followers.isEmpty {
+                VStack {
+                    Text("Add GitHub accounts")
+                        .foregroundColor(.gray)
+                        .opacity(0.5)
                 }
-            }
-        } else {
-            ScrollView {
+            } else {
                 VStack(alignment: .leading) {
                     ForEach(followers, id: \.self) { follower in
                         Text(follower)
@@ -33,24 +33,22 @@ struct ContentView: View {
                         GraphView(userName: follower, numOfColumns: numOfColumns)
                         Divider()
                     }
-                    Button("load") {
-                        loadUserDefaults()
-                    }
                 }
             }
-            .scrollIndicators(.hidden)
-            .onChange(of: scenePhase) { phase in
-                if phase == .active {
-                    loadUserDefaults()
-                }
+        }
+        .scrollIndicators(.hidden)
+        .onChange(of: scenePhase) { phase in
+            if phase == .active {
+                loadUserDefaults()
             }
         }
     }
 
     func loadUserDefaults() {
-        if let defaultFollowers = UserDefaults(suiteName: "N38H3ZBTB2.group.com.hikaruaohara.WristGraph")!.stringArray(forKey: "followers") {
-            followers = defaultFollowers
-        }
+        numOfColumns = connectivityManager.numOfColumns
+        followers = connectivityManager.followers
+
+        UserDefaults(suiteName: "N38H3ZBTB2.group.com.hikaruaohara.WristGraph")!.set(followers, forKey: "followers")
     }
 }
 

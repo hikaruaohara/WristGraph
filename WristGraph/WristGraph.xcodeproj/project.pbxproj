@@ -38,6 +38,7 @@
 		179A7FA52A0ACBF2000276A2 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 179A7FA42A0ACBF2000276A2 /* Moya */; };
 		17A4AF6D2A14A25400217CC5 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4AF6C2A14A25400217CC5 /* WatchConnectivityManager.swift */; };
 		17A4AF6E2A14A25400217CC5 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4AF6C2A14A25400217CC5 /* WatchConnectivityManager.swift */; };
+		17A4AF6F2A14A4C100217CC5 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4AF6C2A14A25400217CC5 /* WatchConnectivityManager.swift */; };
 		17F710F52A0B55870042D8F2 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F710F42A0B55870042D8F2 /* AccessToken.swift */; };
 		17F710F62A0B57100042D8F2 /* ParseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173857602A0AC00300DA7204 /* ParseModel.swift */; };
 		17F710F72A0B57250042D8F2 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F710F42A0B55870042D8F2 /* AccessToken.swift */; };
@@ -434,6 +435,7 @@
 				171551FC2A10BBC80086CEEA /* WristGraphWidget_Watch.swift in Sources */,
 				171552072A10BF6B0086CEEA /* GraphElement.swift in Sources */,
 				1715520A2A10BF770086CEEA /* ParseModel.swift in Sources */,
+				17A4AF6F2A14A4C100217CC5 /* WatchConnectivityManager.swift in Sources */,
 				171551FA2A10BBC80086CEEA /* WristGraphWidget_WatchBundle.swift in Sources */,
 				171552082A10BF770086CEEA /* APIClient.swift in Sources */,
 				171552062A10BF490086CEEA /* GraphView.swift in Sources */,

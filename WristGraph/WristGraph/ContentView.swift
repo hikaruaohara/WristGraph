@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
     @AppStorage("numOfColumns") private var numOfColumns = 16
     @State private var followers = UserDefaults.standard.stringArray(forKey: "followers") ?? [String]()
     @State private var showSheet = false
-    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         NavigationView {
@@ -48,7 +48,15 @@ struct ContentView: View {
             .sheet(isPresented: $showSheet) {
                 SheetView(followers: $followers, showSheet: $showSheet)
             }
+            .onAppear {
+                saveAndSend(followers: followers, numOfColumns: numOfColumns)
+            }
         }
+    }
+
+    func saveAndSend(followers: [String], numOfColumns: Int) {
+        UserDefaults.standard.set(followers, forKey: "followers")
+        connectivityManager.send(followers: followers, numOfColumns: numOfColumns)
     }
 }
 
