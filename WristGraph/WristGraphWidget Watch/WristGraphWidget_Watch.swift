@@ -9,12 +9,24 @@ import WidgetKit
 import SwiftUI
 
 struct Provider: TimelineProvider {
+    private var demoWeeks = Array(repeating: [String](), count: 7)
+
+    init() {
+        let levels = ["NONE", "FIRST_QUARTILE", "SECOND_QUARTILE", "THIRD_QUARTILE", "FOURTH_QUARTILE"]
+
+        for i in 0..<demoWeeks.count {
+            for _ in 0..<19 {
+                demoWeeks[i].append(levels[Int.random(in: 0..<levels.count)])
+            }
+        }
+    }
+
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), weeks: [[String()]])
+        SimpleEntry(date: Date(), weeks: demoWeeks)
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        completion(SimpleEntry(date: Date(), weeks: [[String]]()))
+        completion(SimpleEntry(date: Date(), weeks: demoWeeks))
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
