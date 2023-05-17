@@ -16,11 +16,11 @@ struct GraphElement: View {
 
         switch contributionLevel {
         case "FIRST_QUARTILE":
-            color = Color.green.opacity(0.25)
+            color = Color.green.opacity(0.4)
         case "SECOND_QUARTILE":
-            color = Color.green.opacity(0.5)
+            color = Color.green.opacity(0.6)
         case "THIRD_QUARTILE":
-            color = Color.green.opacity(0.75)
+            color = Color.green.opacity(0.8)
         case "FOURTH_QUARTILE":
             color = Color.green.opacity(1)
         default:

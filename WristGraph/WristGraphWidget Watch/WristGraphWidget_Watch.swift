@@ -14,8 +14,7 @@ struct Provider: TimelineProvider {
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), weeks: [[String()]])
-        completion(entry)
+        completion(SimpleEntry(date: Date(), weeks: [[String]]()))
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
@@ -74,17 +73,16 @@ struct WristGraphWidget_WatchEntryView : View {
     var body: some View {
         GeometryReader { geometry in
             let size = (geometry.size.height * 5 - 10) / 41
-            VStack {
-                Grid(horizontalSpacing: size / 5, verticalSpacing: size / 5) {
-                    ForEach(0..<entry.weeks.count, id: \.self) { i in
-                        GridRow {
-                            ForEach(0..<entry.weeks[i].count, id: \.self) { j in
-                                GraphElement(contributionLevel: entry.weeks[i][j], size: size)
-                            }
+
+            Grid(horizontalSpacing: size / 5, verticalSpacing: size / 5) {
+                ForEach(0..<entry.weeks.count, id: \.self) { i in
+                    GridRow {
+                        ForEach(0..<entry.weeks[i].count, id: \.self) { j in
+                            GraphElement(contributionLevel: entry.weeks[i][j], size: size)
+                                .widgetAccentable()
                         }
                     }
                 }
-                .padding(.vertical, 1)
             }
         }
     }
@@ -98,8 +96,7 @@ struct WristGraphWidget_Watch: Widget {
             WristGraphWidget_WatchEntryView(entry: entry)
         }
         .supportedFamilies([.accessoryRectangular])
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Github Contribution Graph")
     }
 }
 
