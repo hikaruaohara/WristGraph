@@ -40,10 +40,15 @@ struct Provider: TimelineProvider {
     }
 
     func fetchData() async -> [[String]] {
+        let sharedUserDefaults = UserDefaults(suiteName: "group.com.hikaruaohara.WristGraph")!
         var weeks = Array(repeating: [String](), count: 7)
 
         do {
-            let weeks_ = try await Request.shared.getGraph(userName: "hikaruaohara")
+            var userName = ""
+            if let followers = sharedUserDefaults.stringArray(forKey: "followers") {
+                userName = followers[0]
+            }
+            let weeks_ = try await Request.shared.getGraph(userName: userName)
             let displayedWeeks = weeks_[weeks_.count - 19 ..< weeks_.count]
             for week in displayedWeeks {
                 for day in week.contributionDays {

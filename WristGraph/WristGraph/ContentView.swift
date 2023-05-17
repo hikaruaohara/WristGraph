@@ -19,7 +19,7 @@ struct ContentView: View {
             ScrollView {
                 if followers.isEmpty {
                     VStack {
-                        Text("Add GitHub accounts")
+                        Text("Add GitHub accounts.")
                             .foregroundColor(.gray)
                             .opacity(0.5)
                     }

@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct ContentView: View {
-    private let sharedUserDefaults = UserDefaults(suiteName: "N38H3ZBTB2.group.com.hikaruaohara.WristGraph")!
+    private let sharedUserDefaults = UserDefaults(suiteName: "group.com.hikaruaohara.WristGraph")!
     @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
     @Environment(\.scenePhase) private var scenePhase
 
@@ -20,7 +21,7 @@ struct ContentView: View {
         ScrollView {
             if connectivityManager.followers.isEmpty {
                 VStack {
-                    Text("Add GitHub accounts")
+                    Text("Add GitHub accounts on the iPhone app.")
                         .foregroundColor(.gray)
                         .opacity(0.5)
                 }
@@ -45,7 +46,7 @@ struct ContentView: View {
 
     func loadUserDefaults() {
         sharedUserDefaults.set(connectivityManager.followers, forKey: "followers")
-        sharedUserDefaults.set(connectivityManager.numOfColumns, forKey: "numOfColumns")
+        WidgetCenter.shared.reloadAllTimelines()
     }
 }
 
