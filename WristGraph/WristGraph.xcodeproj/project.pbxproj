@@ -36,6 +36,8 @@
 		1738575F2A0ABF7F00DA7204 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738575D2A0ABF7F00DA7204 /* APIClient.swift */; };
 		173857612A0AC00300DA7204 /* ParseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173857602A0AC00300DA7204 /* ParseModel.swift */; };
 		179A7FA52A0ACBF2000276A2 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 179A7FA42A0ACBF2000276A2 /* Moya */; };
+		17A4AF6D2A14A25400217CC5 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4AF6C2A14A25400217CC5 /* WatchConnectivityManager.swift */; };
+		17A4AF6E2A14A25400217CC5 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4AF6C2A14A25400217CC5 /* WatchConnectivityManager.swift */; };
 		17F710F52A0B55870042D8F2 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F710F42A0B55870042D8F2 /* AccessToken.swift */; };
 		17F710F62A0B57100042D8F2 /* ParseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173857602A0AC00300DA7204 /* ParseModel.swift */; };
 		17F710F72A0B57250042D8F2 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F710F42A0B55870042D8F2 /* AccessToken.swift */; };
@@ -127,6 +129,7 @@
 		175E12FD2A13700E00679E04 /* WristGraphWidget WatchExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WristGraphWidget WatchExtension.entitlements"; sourceTree = "<group>"; };
 		1782BDBF2A112BC2000DA19F /* WristGraph Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WristGraph Watch App.entitlements"; sourceTree = "<group>"; };
 		17A4AF6A2A13D7DD00217CC5 /* WristGraph-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WristGraph-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		17A4AF6C2A14A25400217CC5 /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
 		17F710F42A0B55870042D8F2 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		17F710FC2A0B5B2F0042D8F2 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		17F711002A0B5C990042D8F2 /* GraphElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphElement.swift; sourceTree = "<group>"; };
@@ -179,6 +182,7 @@
 				175E12FD2A13700E00679E04 /* WristGraphWidget WatchExtension.entitlements */,
 				1738574C2A0AA99800DA7204 /* API */,
 				17F710FF2A0B5C420042D8F2 /* Graph */,
+				17A4AF6B2A14A20D00217CC5 /* WatchConnection */,
 				173857272A0A98DF00DA7204 /* WristGraph */,
 				173857392A0A98E100DA7204 /* WristGraph Watch App */,
 				171551F82A10BBC80086CEEA /* WristGraphWidget Watch */,
@@ -260,6 +264,15 @@
 				171551A02A10A8C00086CEEA /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		17A4AF6B2A14A20D00217CC5 /* WatchConnection */ = {
+			isa = PBXGroup;
+			children = (
+				17A4AF6C2A14A25400217CC5 /* WatchConnectivityManager.swift */,
+			);
+			name = WatchConnection;
+			path = API/WatchConnection;
 			sourceTree = "<group>";
 		};
 		17F710FF2A0B5C420042D8F2 /* Graph */ = {
@@ -436,6 +449,7 @@
 				17F711012A0B5C990042D8F2 /* GraphElement.swift in Sources */,
 				173857612A0AC00300DA7204 /* ParseModel.swift in Sources */,
 				171232492A0EB42D00DB3338 /* SheetView.swift in Sources */,
+				17A4AF6D2A14A25400217CC5 /* WatchConnectivityManager.swift in Sources */,
 				17F710FD2A0B5B2F0042D8F2 /* GraphView.swift in Sources */,
 				173857292A0A98DF00DA7204 /* WristGraphApp.swift in Sources */,
 				173857572A0AB70800DA7204 /* Target.swift in Sources */,
@@ -452,6 +466,7 @@
 				17F711022A0B5C990042D8F2 /* GraphElement.swift in Sources */,
 				1738573B2A0A98E100DA7204 /* WristGraphApp.swift in Sources */,
 				17F710FE2A0B5B2F0042D8F2 /* GraphView.swift in Sources */,
+				17A4AF6E2A14A25400217CC5 /* WatchConnectivityManager.swift in Sources */,
 				17F710F62A0B57100042D8F2 /* ParseModel.swift in Sources */,
 				173857582A0AB70800DA7204 /* Target.swift in Sources */,
 				1738575F2A0ABF7F00DA7204 /* APIClient.swift in Sources */,
