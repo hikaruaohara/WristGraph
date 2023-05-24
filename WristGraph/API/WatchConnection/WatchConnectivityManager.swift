@@ -10,7 +10,8 @@ import WatchConnectivity
 
 final class WatchConnectivityManager: NSObject, ObservableObject {
     @Published var followers: [String] = []
-    @Published var numOfColumns: Int = 16
+    @Published var numOfColumns = 16
+    @Published var hasHostData = false
 
     static let shared = WatchConnectivityManager()
 
@@ -38,7 +39,7 @@ final class WatchConnectivityManager: NSObject, ObservableObject {
         #endif
 
         do {
-            try WCSession.default.updateApplicationContext(["followers": followers, "numOfColumns": numOfColumns])
+            try WCSession.default.updateApplicationContext(["followers": followers, "numOfColumns": numOfColumns, "hasHostData": true])
         } catch {
             print(error.localizedDescription)
         }
@@ -56,6 +57,12 @@ extension WatchConnectivityManager: WCSessionDelegate {
         if let numOfColumns = applicationContext["numOfColumns"] as? Int {
             DispatchQueue.main.async {
                 self.numOfColumns = numOfColumns
+            }
+        }
+
+        if let hasHostData = applicationContext["hasHostData"] as? Bool {
+            DispatchQueue.main.async {
+                self.hasHostData = hasHostData
             }
         }
     }
