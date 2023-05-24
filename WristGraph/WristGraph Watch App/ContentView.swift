@@ -43,6 +43,7 @@ struct ContentView: View {
         .onChange(of: scenePhase) { phase in
             if phase == .active {
                 loadUserDefaults()
+                WidgetCenter.shared.reloadAllTimelines()
             }
         }
     }
@@ -55,8 +56,6 @@ struct ContentView: View {
 
         followers = sharedUserDefaults.stringArray(forKey: "followers")!
         numOfColumns = sharedUserDefaults.integer(forKey: "numOfColumns")
-
-        WidgetCenter.shared.reloadAllTimelines()
     }
 }
 
