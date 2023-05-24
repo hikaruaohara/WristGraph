@@ -91,11 +91,11 @@ struct WristGraphWidget_WatchEntryView : View {
                     GridRow {
                         ForEach(0..<entry.weeks[i].count, id: \.self) { j in
                             GraphElement(contributionLevel: entry.weeks[i][j], size: size)
-                                .widgetAccentable()
                         }
                     }
                 }
             }
+            .widgetAccentable()
         }
     }
 }
