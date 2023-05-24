@@ -11,6 +11,7 @@ import SwiftUI
 @main
 struct WristGraphWidget_WatchBundle: WidgetBundle {
     var body: some Widget {
-        WristGraphWidget_Watch()
+        FirstPersonWidget()
+        SecondPersonWidget()
     }
 }

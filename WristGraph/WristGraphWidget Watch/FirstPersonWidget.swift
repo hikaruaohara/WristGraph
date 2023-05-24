@@ -1,5 +1,5 @@
 //
-//  WristGraphWidget_Watch.swift
+//  FirstPersonWidget.swift
 //  WristGraphWidget Watch
 //
 //  Created by 青原光 on 2023/05/14.
@@ -8,7 +8,7 @@
 import WidgetKit
 import SwiftUI
 
-struct Provider: TimelineProvider {
+struct FirstPersonWidgetProvider: TimelineProvider {
     private var demoWeeks = Array(repeating: [String](), count: 7)
 
     init() {
@@ -21,30 +21,22 @@ struct Provider: TimelineProvider {
         }
     }
 
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), weeks: demoWeeks)
+    func placeholder(in context: Context) -> FirstPersonWidgetEntry {
+        FirstPersonWidgetEntry(date: Date(), weeks: demoWeeks)
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        completion(SimpleEntry(date: Date(), weeks: demoWeeks))
+    func getSnapshot(in context: Context, completion: @escaping (FirstPersonWidgetEntry) -> ()) {
+        completion(FirstPersonWidgetEntry(date: Date(), weeks: demoWeeks))
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         Task {
-            var entries: [SimpleEntry] = []
+            var entries: [FirstPersonWidgetEntry] = []
 
             // Generate a timeline consisting of five entries an hour apart, starting from the current date.
             let weeks = await fetchData()
             let date = Calendar.current.date(byAdding: .hour, value: 0, to: Date())!
-            entries.append(SimpleEntry(date: date, weeks: weeks))
-
-//            let currentDate = Date()
-//            for hourOffset in 0 ..< 5 {
-//                let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-//                let entry = SimpleEntry(date: entryDate)
-//                entries.append(entry)
-//            }
-
+            entries.append(FirstPersonWidgetEntry(date: date, weeks: weeks))
             let timeline = Timeline(entries: entries, policy: .atEnd)
             completion(timeline)
         }
@@ -74,13 +66,13 @@ struct Provider: TimelineProvider {
     }
 }
 
-struct SimpleEntry: TimelineEntry {
+struct FirstPersonWidgetEntry: TimelineEntry {
     var date: Date
     let weeks: [[String]]
 }
 
-struct WristGraphWidget_WatchEntryView : View {
-    var entry: Provider.Entry
+struct FirstPersonWidgetEntryView : View {
+    var entry: FirstPersonWidgetProvider.Entry
 
     var body: some View {
         GeometryReader { geometry in
@@ -100,21 +92,21 @@ struct WristGraphWidget_WatchEntryView : View {
     }
 }
 
-struct WristGraphWidget_Watch: Widget {
-    let kind: String = "WristGraphWidget_Watch"
+struct FirstPersonWidget: Widget {
+    let kind: String = "FirstPersonWidget"
 
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            WristGraphWidget_WatchEntryView(entry: entry)
+        StaticConfiguration(kind: kind, provider: FirstPersonWidgetProvider()) { entry in
+            FirstPersonWidgetEntryView(entry: entry)
         }
         .supportedFamilies([.accessoryRectangular])
-        .configurationDisplayName("Github Contribution Graph")
+        .configurationDisplayName("First Person")
     }
 }
 
-struct WristGraphWidget_Watch_Previews: PreviewProvider {
+struct FirstPersonWidget_Previews: PreviewProvider {
     static var previews: some View {
-        WristGraphWidget_WatchEntryView(entry: SimpleEntry(date: Date(), weeks: [[String()]]))
+        FirstPersonWidgetEntryView(entry: FirstPersonWidgetEntry(date: Date(), weeks: [[String()]]))
             .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
     }
 }

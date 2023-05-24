@@ -11,7 +11,7 @@
 		171551F62A10BBC80086CEEA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1715519E2A10A8C00086CEEA /* WidgetKit.framework */; };
 		171551F72A10BBC80086CEEA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171551A02A10A8C00086CEEA /* SwiftUI.framework */; };
 		171551FA2A10BBC80086CEEA /* WristGraphWidget_WatchBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171551F92A10BBC80086CEEA /* WristGraphWidget_WatchBundle.swift */; };
-		171551FC2A10BBC80086CEEA /* WristGraphWidget_Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171551FB2A10BBC80086CEEA /* WristGraphWidget_Watch.swift */; };
+		171551FC2A10BBC80086CEEA /* FirstPersonWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171551FB2A10BBC80086CEEA /* FirstPersonWidget.swift */; };
 		171551FE2A10BBC90086CEEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 171551FD2A10BBC90086CEEA /* Assets.xcassets */; };
 		171552032A10BC250086CEEA /* WristGraphWidget WatchExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 171551F52A10BBC80086CEEA /* WristGraphWidget WatchExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		171552062A10BF490086CEEA /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F710FC2A0B5B2F0042D8F2 /* GraphView.swift */; };
@@ -47,6 +47,7 @@
 		17F711012A0B5C990042D8F2 /* GraphElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F711002A0B5C990042D8F2 /* GraphElement.swift */; };
 		17F711022A0B5C990042D8F2 /* GraphElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F711002A0B5C990042D8F2 /* GraphElement.swift */; };
 		17FBBAFD2A0ACD8500B0C177 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 17FBBAFC2A0ACD8500B0C177 /* Moya */; };
+		17FDC9702A1E477E00B6CD94 /* SecondPersonWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDC96F2A1E477E00B6CD94 /* SecondPersonWidget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,7 +108,7 @@
 		171551A02A10A8C00086CEEA /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		171551F52A10BBC80086CEEA /* WristGraphWidget WatchExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WristGraphWidget WatchExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		171551F92A10BBC80086CEEA /* WristGraphWidget_WatchBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WristGraphWidget_WatchBundle.swift; sourceTree = "<group>"; };
-		171551FB2A10BBC80086CEEA /* WristGraphWidget_Watch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WristGraphWidget_Watch.swift; sourceTree = "<group>"; };
+		171551FB2A10BBC80086CEEA /* FirstPersonWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPersonWidget.swift; sourceTree = "<group>"; };
 		171551FD2A10BBC90086CEEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		171551FF2A10BBC90086CEEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		173857252A0A98DF00DA7204 /* WristGraph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WristGraph.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +135,7 @@
 		17F710F42A0B55870042D8F2 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		17F710FC2A0B5B2F0042D8F2 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		17F711002A0B5C990042D8F2 /* GraphElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphElement.swift; sourceTree = "<group>"; };
+		17FDC96F2A1E477E00B6CD94 /* SecondPersonWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPersonWidget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				171551F92A10BBC80086CEEA /* WristGraphWidget_WatchBundle.swift */,
-				171551FB2A10BBC80086CEEA /* WristGraphWidget_Watch.swift */,
+				171551FB2A10BBC80086CEEA /* FirstPersonWidget.swift */,
+				17FDC96F2A1E477E00B6CD94 /* SecondPersonWidget.swift */,
 				171551FD2A10BBC90086CEEA /* Assets.xcassets */,
 				171551FF2A10BBC90086CEEA /* Info.plist */,
 			);
@@ -432,8 +435,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				171552092A10BF770086CEEA /* Target.swift in Sources */,
-				171551FC2A10BBC80086CEEA /* WristGraphWidget_Watch.swift in Sources */,
+				171551FC2A10BBC80086CEEA /* FirstPersonWidget.swift in Sources */,
 				171552072A10BF6B0086CEEA /* GraphElement.swift in Sources */,
+				17FDC9702A1E477E00B6CD94 /* SecondPersonWidget.swift in Sources */,
 				1715520A2A10BF770086CEEA /* ParseModel.swift in Sources */,
 				17A4AF6F2A14A4C100217CC5 /* WatchConnectivityManager.swift in Sources */,
 				171551FA2A10BBC80086CEEA /* WristGraphWidget_WatchBundle.swift in Sources */,
