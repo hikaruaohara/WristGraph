@@ -295,9 +295,9 @@
 		17F710FF2A0B5C420042D8F2 /* Graph */ = {
 			isa = PBXGroup;
 			children = (
-				17F710FC2A0B5B2F0042D8F2 /* GraphView.swift */,
-				17E04AC52A23A381009EB5DB /* GraphViewModel.swift */,
 				17E04AC92A24450A009EB5DB /* GraphModel.swift */,
+				17E04AC52A23A381009EB5DB /* GraphViewModel.swift */,
+				17F710FC2A0B5B2F0042D8F2 /* GraphView.swift */,
 				17F711002A0B5C990042D8F2 /* GraphElement.swift */,
 			);
 			path = Graph;
