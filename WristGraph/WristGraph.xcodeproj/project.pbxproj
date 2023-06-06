@@ -221,9 +221,9 @@
 			isa = PBXGroup;
 			children = (
 				175E12FC2A136D6F00679E04 /* WristGraph.entitlements */,
+				17E04ACD2A244EDB009EB5DB /* Model.swift */,
 				173857282A0A98DF00DA7204 /* WristGraphApp.swift */,
 				1738572A2A0A98DF00DA7204 /* ContentView.swift */,
-				17E04ACD2A244EDB009EB5DB /* Model.swift */,
 				171232482A0EB42D00DB3338 /* SheetView.swift */,
 				1738572C2A0A98E100DA7204 /* Assets.xcassets */,
 				1738572E2A0A98E100DA7204 /* Preview Content */,
