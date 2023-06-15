@@ -75,20 +75,17 @@ struct SecondPersonWidgetEntryView : View {
     var entry: SecondPersonWidgetProvider.Entry
 
     var body: some View {
-        GeometryReader { geometry in
-            let size = (geometry.size.height * 5 - 10) / 41
-
-            Grid(horizontalSpacing: size / 5, verticalSpacing: size / 5) {
-                ForEach(0..<entry.weeks.count, id: \.self) { i in
-                    GridRow {
-                        ForEach(0..<entry.weeks[i].count, id: \.self) { j in
-                            GraphElement(contributionLevel: entry.weeks[i][j], size: size)
-                        }
+        Grid(horizontalSpacing: 0, verticalSpacing: 0) {
+            ForEach(0..<entry.weeks.count, id: \.self) { i in
+                GridRow {
+                    ForEach(0..<entry.weeks[i].count, id: \.self) { j in
+                        GraphElement(contributionLevel: entry.weeks[i][j])
+                            .aspectRatio(1, contentMode: .fit)
                     }
                 }
             }
-            .widgetAccentable()
         }
+        .widgetAccentable()
     }
 }
 

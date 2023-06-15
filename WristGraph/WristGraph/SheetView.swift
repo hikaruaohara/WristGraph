@@ -9,32 +9,31 @@ import SwiftUI
 
 struct SheetView: View {
     @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
-    @AppStorage("numOfColumns") private var numOfColumns = 16
-    @Binding var followers: [String]
     @Binding var showSheet: Bool
     @State private var showAlert = false
     @State private var newName = ""
+    @EnvironmentObject private var model: Model
 
     var body: some View {
         NavigationView {
             VStack {
                 List {
                     Section(header: Text("Number of columns")) {
-                        Stepper(value: $numOfColumns, in: 16...53, step: 1) {
-                            Text("\(numOfColumns)")
+                        Stepper(value: $model.numOfCols, in: 16...53, step: 1) {
+                            Text("\(model.numOfCols)")
                         }
                     }
                     .textCase(.none)
 
                     Section(header: Text("Contribution graph list")) {
-                        ForEach(followers, id: \.self) { follower in
+                        ForEach(model.followers, id: \.self) { follower in
                             Text(follower)
                         }
                         .onMove { index, destination in
-                            followers.move(fromOffsets: index, toOffset: destination)
+                            model.followers.move(fromOffsets: index, toOffset: destination)
                         }
                         .onDelete { index in
-                            followers.remove(atOffsets: index)
+                            model.followers.remove(atOffsets: index)
                         }
 
                         Button {
@@ -71,7 +70,7 @@ struct SheetView: View {
                 }
                 .listStyle(.insetGrouped)
                 .onDisappear {
-                    saveAndSend(followers: followers, numOfColumns: numOfColumns)
+                    saveAndSend()
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -87,26 +86,25 @@ struct SheetView: View {
         }
     }
 
-    func saveAndSend(followers: [String], numOfColumns: Int) {
-        UserDefaults.standard.set(followers, forKey: "followers")
-        connectivityManager.send(followers: followers, numOfColumns: numOfColumns)
+    func saveAndSend() {
+        UserDefaults.standard.set(model.followers, forKey: "followers")
+        UserDefaults.standard.set(model.numOfCols, forKey: "numOfCols")
+        connectivityManager.send(followers: model.followers, numOfCols: model.numOfCols)
     }
 
     func addFollowers(newFollowerName: String) {
         let name = newFollowerName.trimmingCharacters(in: .whitespaces)
 
-        if !followers.contains(name) && !name.isEmpty {
-            followers.append(name)
+        if !model.followers.contains(name) && !name.isEmpty {
+            model.followers.append(name)
         }
     }
 }
 
 struct SheetView_Previews: PreviewProvider {
-    @State private static var followers = ["hikaruaohara", "tomota8686", "znnz0"]
     @State private static var showSheet = true
 
     static var previews: some View {
-        SheetView(followers: $followers, showSheet: $showSheet)
-            .environment(\.colorScheme, .dark)
+        SheetView(showSheet: $showSheet)
     }
 }

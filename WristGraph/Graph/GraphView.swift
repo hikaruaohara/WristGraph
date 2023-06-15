@@ -9,26 +9,31 @@ import SwiftUI
 import UIKit
 
 struct GraphView: View {
+    @State private var isLoading = false
     @ObservedObject var graphViewModel: GraphViewModel
-    @EnvironmentObject private var model: Model
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(graphViewModel.userName)
-                .bold()
-
-            let size = graphViewModel.graphFrame.height * 5 / 41
-            Grid(horizontalSpacing: size / 5, verticalSpacing: size / 5) {
+        if isLoading {
+            ProgressView()
+        } else {
+            Grid(horizontalSpacing: 0, verticalSpacing: 0) {
                 ForEach(0..<graphViewModel.weeks.count, id: \.self) { i in
                     GridRow {
                         ForEach(0..<graphViewModel.weeks[i].count, id: \.self) { j in
-                            GraphElement(contributionLevel: graphViewModel.weeks[i][j], size: size)
+                            GraphElement(contributionLevel: graphViewModel.weeks[i][j])
+                                .aspectRatio(1, contentMode: .fit)
                         }
                     }
                 }
             }
+            .onTapGesture {
+                Task {
+                    isLoading = true
+                    await graphViewModel.fetchData()
+                    isLoading = false
+                }
+            }
         }
-        .frame(width: graphViewModel.graphFrame.width, height: graphViewModel.graphFrame.height)
     }
 }
 

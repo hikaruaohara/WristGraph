@@ -7,10 +7,11 @@
 
 import Foundation
 import WatchConnectivity
+import SwiftUI
 
 final class WatchConnectivityManager: NSObject, ObservableObject {
     @Published var followers: [String] = []
-    @Published var numOfColumns = 16
+    @Published var numOfCols = 16
     @Published var hasHostData = false
 
     static let shared = WatchConnectivityManager()
@@ -24,7 +25,7 @@ final class WatchConnectivityManager: NSObject, ObservableObject {
         }
     }
 
-    func send(followers: [String], numOfColumns: Int) {
+    func send(followers: [String], numOfCols: Int) {
         guard WCSession.default.activationState == .activated else {
           return
         }
@@ -39,7 +40,7 @@ final class WatchConnectivityManager: NSObject, ObservableObject {
         #endif
 
         do {
-            try WCSession.default.updateApplicationContext(["followers": followers, "numOfColumns": numOfColumns, "hasHostData": true])
+            try WCSession.default.updateApplicationContext(["followers": followers, "numOfCols": numOfCols, "hasHostData": true])
         } catch {
             print(error.localizedDescription)
         }
@@ -54,9 +55,9 @@ extension WatchConnectivityManager: WCSessionDelegate {
             }
         }
 
-        if let numOfColumns = applicationContext["numOfColumns"] as? Int {
+        if let numOfCols = applicationContext["numOfCols"] as? Int {
             DispatchQueue.main.async {
-                self.numOfColumns = numOfColumns
+                self.numOfCols = numOfCols
             }
         }
 

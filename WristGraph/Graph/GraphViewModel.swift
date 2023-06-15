@@ -17,11 +17,8 @@ class GraphViewModel: ObservableObject {
 
     var userName: String { graphModel.userName }
     var weeks: [[String]] { graphModel.weeks }
-    var graphFrame: CGSize { graphModel.graphFrame }
 
     @Published var graphModel: GraphModel
-
-    @EnvironmentObject private var model: Model
 
     init(userName: String) {
         graphModel = GraphModel(userName: userName, weeks: [[]])
@@ -31,12 +28,13 @@ class GraphViewModel: ObservableObject {
         }
     }
 
+    @MainActor
     func fetchData() async {
         graphModel.weeks = Array(repeating: [], count: 7)
         
         do {
             let weeks_ = try await Request.shared.getGraph(userName: graphModel.userName)
-            let displayedWeeks = weeks_[weeks_.count - model.numOfCols ..< weeks_.count]
+            let displayedWeeks = weeks_[weeks_.count - defaults.integer(forKey: "numOfCols") ..< weeks_.count]
 
             for week in displayedWeeks {
                 for day in week.contributionDays {

@@ -10,19 +10,17 @@ import WidgetKit
 
 struct ContentView: View {
     private let sharedUserDefaults = UserDefaults(suiteName: "group.com.hikaruaohara.WristGraph")!
-    @State private var followers = [String]()
-    @State private var numOfColumns = 16
     @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
+    @EnvironmentObject private var model: Model
     @Environment(\.scenePhase) private var scenePhase
 
     init() {
-        sharedUserDefaults.register(defaults: ["followers": [String](), "numOfColumns": 16])
         loadUserDefaults()
     }
 
     var body: some View {
         ScrollView {
-            if followers.isEmpty {
+            if model.followers.isEmpty {
                 VStack {
                     Text("Add GitHub accounts on the iPhone app.")
                         .foregroundColor(.gray)
@@ -30,10 +28,10 @@ struct ContentView: View {
                 }
             } else {
                 VStack(alignment: .leading) {
-                    ForEach(followers, id: \.self) { follower in
+                    ForEach(model.followers, id: \.self) { follower in
                         Text(follower)
                             .bold()
-                        GraphView(userName: follower, numOfColumns: sharedUserDefaults.integer(forKey: "numOfColumns"))
+                        GraphView(graphViewModel: GraphViewModel(userName: follower))
                         Divider()
                     }
                 }
@@ -50,17 +48,17 @@ struct ContentView: View {
 
     func loadUserDefaults() {
         if connectivityManager.hasHostData {
-            sharedUserDefaults.set(connectivityManager.followers, forKey: "followers")
-            sharedUserDefaults.set(connectivityManager.numOfColumns, forKey: "numOfColumns")
+            model.numOfCols = connectivityManager.numOfCols
+            model.followers = connectivityManager.followers
+            sharedUserDefaults.set(model.numOfCols, forKey: "numOfCols")
+            sharedUserDefaults.set(model.followers, forKey: "followers")
         }
-
-        followers = sharedUserDefaults.stringArray(forKey: "followers")!
-        numOfColumns = sharedUserDefaults.integer(forKey: "numOfColumns")
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(Model())
     }
 }
