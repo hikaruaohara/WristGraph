@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isLoading = false
     @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
     @State private var showSheet = false
     @EnvironmentObject private var model: Model
@@ -15,25 +16,36 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            ScrollView {
+            Group {
                 if model.followers.isEmpty {
-                    VStack {
-                        Text("Add GitHub accounts.")
-                            .foregroundColor(.gray)
-                            .opacity(0.5)
-                    }
+                    Text("Add GitHub accounts.")
+                        .foregroundColor(.gray)
+                        .opacity(0.5)
                 } else {
-                    VStack(alignment: .leading) {
-                        ForEach(model.followers, id: \.self) { follower in
-                            Text(follower)
-                                .bold()
-                            GraphView(graphViewModel: GraphViewModel(userName: follower))
-                            Divider()
+                    List {
+                        if !isLoading {
+                            ForEach(model.graphViewModels.indices, id: \.self) { index in
+                                VStack(alignment: .leading) {
+                                    Text(model.followers[index])
+                                        .bold()
+                                    GraphView(graphViewModel: model.graphViewModels[index])
+                                }
+                            }
+                            .onMove { index, destination in
+                                model.followers.move(fromOffsets: index, toOffset: destination)
+                                model.graphViewModels.move(fromOffsets: index, toOffset: destination)
+                            }
+                            .onDelete { index in
+                                model.followers.remove(atOffsets: index)
+                                model.graphViewModels.remove(atOffsets: index)
+                            }
                         }
+                    }
+                    .refreshable {
+                        await reload()
                     }
                 }
             }
-            .scrollIndicators(.hidden)
             .navigationTitle("Contribution Graphs")
             .navigationBarTitleDisplayMode(.automatic)
             .toolbar {
@@ -48,12 +60,27 @@ struct ContentView: View {
             .sheet(isPresented: $showSheet) {
                 SheetView(showSheet: $showSheet)
             }
+            .onChange(of: showSheet, perform: { newValue in
+                Task {
+                    await reload()
+                }
+            })
             .onChange(of: scenePhase) { phase in
-                if phase == .active {
-                    saveAndSend()
+                Task {
+                    if phase == .active {
+                        saveAndSend()
+                    }
                 }
             }
         }
+    }
+
+    func reload() async {
+        isLoading = true
+        for graphViewModel in model.graphViewModels {
+            await graphViewModel.fetchData()
+        }
+        isLoading = false
     }
 
     func saveAndSend() {

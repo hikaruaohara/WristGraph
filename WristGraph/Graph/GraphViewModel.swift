@@ -15,9 +15,6 @@ class GraphViewModel: ObservableObject {
     private let defaults = UserDefaults(suiteName: "group.com.hikaruaohara.WristGraph")!
     #endif
 
-    var userName: String { graphModel.userName }
-    var weeks: [[String]] { graphModel.weeks }
-
     @Published var graphModel: GraphModel
 
     init(userName: String) {

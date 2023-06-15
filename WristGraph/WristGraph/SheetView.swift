@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct SheetView: View {
-    @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
-    @Binding var showSheet: Bool
     @State private var showAlert = false
     @State private var newName = ""
+    @Binding var showSheet: Bool
+    @ObservedObject private var connectivityManager = WatchConnectivityManager.shared
     @EnvironmentObject private var model: Model
 
     var body: some View {
@@ -106,5 +106,6 @@ struct SheetView_Previews: PreviewProvider {
 
     static var previews: some View {
         SheetView(showSheet: $showSheet)
+            .environmentObject(Model())
     }
 }

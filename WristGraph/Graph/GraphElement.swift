@@ -36,6 +36,6 @@ struct GraphElement: View {
 
 struct GraphElement_Previews: PreviewProvider {
     static var previews: some View {
-        GraphElement(contributionLevel: "SECOND_QUARTILE")
+        GraphElement(contributionLevel: "FOURTH_QUARTILE")
     }
 }

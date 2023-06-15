@@ -14,12 +14,16 @@ class Model: ObservableObject {
     private let defaults = UserDefaults(suiteName: "group.com.hikaruaohara.WristGraph")!
     #endif
 
-    @Published var numOfCols: Int
-    @Published var followers: [String]
+    @Published var numOfCols: Int = 16
+    @Published var followers: [String] = []
+    @Published var graphViewModels: [GraphViewModel] = []
 
     init() {
-        defaults.register(defaults: ["numOfCols": 16])
         numOfCols = defaults.integer(forKey: "numOfCols")
         followers = defaults.stringArray(forKey: "followers") ?? []
+
+        for follower in followers {
+            graphViewModels.append(GraphViewModel(userName: follower))
+        }
     }
 }
